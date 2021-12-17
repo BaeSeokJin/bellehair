@@ -31,6 +31,6 @@
 	</bean> -->
 	
 	<!-- 매퍼 스캔 : 우리의 프로젝트 안에 있는 맵퍼 어노테이션이 있는 걸 인터페이스로 등록 가능 -->
-	<mybatis-spring:scan base-package="com.bsj.delight" annotation="mapper"/>
+	<mybatis-spring:scan base-package="com.bsj.delight" annotation="org.apache.ibatis.annotations.Mapper"/>
 	
 </beans>
