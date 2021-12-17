@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 
+  	원래 이 Mapper는 dao마다 하나씩 있어야 한다
+  	MemberMapper, OrderMapper, ... 등등
+   -->
+  
+  <!-- 
+  mapper 안에 쿼리를 작성하면 된다.
+  namespace : 쿼리를 실행하기 위한 프록시 객체가 만들어진다. 그 프록시 개체의 풀네임.
+   -->
+  <mapper namespace="com.bsj.delight.mybatis.MybatisMapper">
+  
+  	<select id="selectPasswordByUserId" resultType="String">
+  		select password from member where user_id = #{userId}
+  	</select>
+  
+  	<select id="selectMemberByUserId" resultType="Member">
+  		select * from member where user_id = #{userId}
+  	</select>
+  
+    <insert id="insertWithDto">
+        insert into member(user_id, password, tell, email)
+        values(#{userId},#{password},#{tell},#{email})
+    </insert>
+  
+  </mapper>
+  

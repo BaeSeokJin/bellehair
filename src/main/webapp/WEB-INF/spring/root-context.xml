@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 모든 웹 컨퍼넌트에서 공유되어야 할 빈을 등록 : 서비스, 레퍼지토리 -->	
+	
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+		<property name="user" value="BSJBOARD" />
+		<property name="password" value="1234" />
+		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis/config.xml" /> <!-- mapper를 사용할때 등록해놔야함 -->
+	</bean>
+	
+	<!-- SqlSessionTemplate 등록 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+  		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- mapper interface를 사용하지 않으므로 주석처리 -->
+	<!-- <bean id="mapperFactoryBean" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.bsj.delight.member.model.repository.MemberRepository"/>
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean> -->
+	
+	<!-- 매퍼 스캔 : 우리의 프로젝트 안에 있는 맵퍼 어노테이션이 있는 걸 인터페이스로 등록 가능 -->
+	<mybatis-spring:scan base-package="com.bsj.delight" annotation="mapper"/>
+	
+</beans>
