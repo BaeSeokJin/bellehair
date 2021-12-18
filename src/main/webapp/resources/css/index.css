@@ -1,0 +1,126 @@
+
+html, body
+{
+	height: 100%;
+}
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background: #f0e9e9;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #000000;
+}
+
+h1, h2, h3
+{
+	margin: 0;
+	padding: 0;
+}
+
+p, ol, ul
+{
+	margin-top: 0;
+}
+
+.container
+{
+	overflow: hidden;
+	margin: 0em auto;
+	width: 1000px;
+}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header-wrapper
+{
+	/* 이미지 경로 삽입 성공 */
+	background: url(/resources/image/banner2.jpg) no-repeat center;
+	background-size: cover;
+	border-top: 9px solid rgb(197, 92, 92);;
+}
+
+#header
+{
+	position: relative;
+	padding: 5em 0em;
+}
+
+/*********************************************************************************/
+/* Logo                                                                          */
+/*********************************************************************************/
+
+#logo h1
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1em 1em;
+	background: rgb(197, 92, 92);;
+	border-radius: 0px 0px 5px 5px;
+}
+
+#logo a
+{
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+}
+
+/*********************************************************************************/
+/* Menu                                                                          */
+/*********************************************************************************/
+
+#menu
+{
+	position: absolute;
+	top: 4em;
+	right: 0;
+}
+
+#menu li
+{
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#menu li a, #menu li span
+{
+	padding: 1em 1.5em;
+	letter-spacing: 1px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 0.90em;
+	font-weight: 600;
+	color: #FFF;
+}
+
+#menu li:hover a, #menu li.active a, #menu li.active span
+{
+	background: #CC0000;
+	border-radius: 5px;
+}
+
+
+/*********************************************************************************/
+/* Banner                                                                        */
+/*********************************************************************************/
+
+	#banner
+{
+	padding: 10em 0em;
+}
+
+#banner span
+{
+	display: block;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 700;
+	font-size: 2.5em;
+	color: #FFF;
+}
