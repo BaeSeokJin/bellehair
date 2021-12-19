@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="/WEB-INF/views/include/head.jsp" %>
+<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
+<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
 </head>
 <body>
-<h1>마이페이지</h1>
+<div>이곳은 마이페이지 입니다.</div>
 <table border="1">
 	<tr>
 		<th>아이디</th>

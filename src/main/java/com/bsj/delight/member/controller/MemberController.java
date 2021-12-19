@@ -12,9 +12,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/search-pw")
-	public String searchPassword() {  
-		System.out.println("비밀번호는 " + memberService.selectPasswordByUserId());
-		return "home";
+	@GetMapping("/join-form")
+	public String searchPassword() { 
+		return "member/join-form";
 	}
+	
+	@GetMapping("/login-form")
+	public String searchPassworsd() { 
+		return "member/login-form";
+	}
+	
 }

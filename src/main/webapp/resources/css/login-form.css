@@ -1,0 +1,86 @@
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
+:root{
+	--border-gray-color : #ccc1c1;
+	--naver-green-color: #e78f8f;
+	--naver-green-border-color: #e78f8f;
+}
+
+*{
+	margin:0;
+	padding:0;
+}
+
+.login-input-section-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-input-wrap{
+	width: 465px;
+	height :48px;
+	border: solid 1px var(	--border-gray-color );
+	background: white;
+}
+
+.password-wrap{
+	margin-top: 13px;
+}
+
+.login-input-wrap input{
+	border: none;
+	width:430px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+
+.login-button-wrap {
+	padding-top: 13px;
+}
+
+.login-button-wrap button{
+    font-weight: 600;
+	width: 465px;
+	height :48px;
+	font-size: 18px;
+	background: var(--naver-green-color);
+	color: rgb(252, 249, 249);
+	border: solid 1px var(--naver-green-border-color);
+}
+
+.Easy-sgin-in-wrap{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 40px;
+}
+
+.Easy-sgin-in-wrap .sign-button-list{
+	padding-top:25px;
+	list-style: none;
+	width: 465px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Easy-sgin-in-wrap .sign-button-list li{
+	padding-bottom: 10px;
+}
+
+.Easy-sgin-in-wrap .sign-button-list li button{
+	width: 465px;
+	height: 56px;
+	border: solid 1px var(--border-gray-color);
+	text-align: left;
+	background: white;
+}
+
+.Easy-sgin-in-wrap .sign-button-list li button span{
+	padding-left: 20px;
+	font-size: 18px;
+}
