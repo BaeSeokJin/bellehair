@@ -32,11 +32,11 @@
         <section class="Easy-sgin-in-wrap">
             <h2 style="font-size: 18px; font-family: 'Jeju Myeongjo', serif; padding-top: 20px">다른 방법으로 로그인 하기</h2>
             <div style="padding-top: 20px;">
-           		<img src="../../../resources/image/kakao_login_medium_wide.png" height="50"/>
+           		<img src="../../../resources/images/login/kakao_login_medium_wide.png" height="50"/>
            			<br>
-            	<img src="../../../resources/image/naver_login_medium_wide.png" height="50"/>
+            	<img src="../../../resources/images/login/naver_login_medium_wide.png" height="50"/>
             		<br>
-            	<img src="../../../resources/image/google_login_medium_wide.png" height="50"/>
+            	<img src="../../../resources/images/login/google_login_medium_wide.png" height="50"/>
             </div>
         </section>
         

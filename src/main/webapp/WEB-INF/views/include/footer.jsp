@@ -22,7 +22,7 @@
         }
         .footer-container{
             margin:0 auto;
-            background-image: url("../../../resources/image/footer.png");
+            background-image: url("../../../resources/images/include/footer.png");
             width: 1200px;
             height: 200px;
             line-height: 1.2;

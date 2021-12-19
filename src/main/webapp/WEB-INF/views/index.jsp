@@ -42,10 +42,10 @@
 
 <!-- body 2 :  -->
 <div>
-	<img src="../../../resources/image/index-banner01.png"/>
-	<img src="../../../resources/image/index-banner02.png"/>
-	<img src="../../../resources/image/index-banner03.png"/>
-	<img src="../../../resources/image/index-banner04.png"/>
+	<img src="../../../resources/images/index/index-banner01.png"/>
+	<img src="../../../resources/images/index/index-banner02.png"/>
+	<img src="../../../resources/images/index/index-banner03.png"/>
+	<img src="../../../resources/images/index/index-banner04.png"/>
 </div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 

@@ -14,7 +14,7 @@
 	<meta name="description" content="" />
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 	<link href="../../resources/css/index.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../resources/image/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../resources/images/include/favicon.ico" />
 	<style>
 		@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
 
