@@ -50,10 +50,10 @@
 				<span></span>
 			</li>
 			<li class="nav-item">
-				<a href="">Login</a>
-				<a href="">Join</a>
+				<a href="">Login　</a>
+				<a href="">　Join　</a>
 			</li>
 		</ul>
 	</nav>
-	</body>
+</body>
 </html>
