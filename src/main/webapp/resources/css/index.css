@@ -39,7 +39,7 @@ p, ol, ul
 	#header-wrapper
 {
 	/* 이미지 경로 삽입 성공 */
-	background: url(/resources/image/banner2.jpg) no-repeat center;
+	background: url(/resources/image/mainbanner.jpg) no-repeat center;
 	background-size: cover;
 	border-top: 9px solid rgb(197, 92, 92);;
 }

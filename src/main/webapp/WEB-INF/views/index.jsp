@@ -3,13 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<%@ include file="/WEB-INF/views/include/head.jsp" %>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title></title>
+	<title>Delight</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 	<link href="${contextPath}/resources/css/index.css" rel="stylesheet" type="text/css" media="all" />
-
+      <link rel="shortcut icon" type="image/x-icon" href="../../../resources/image/favicon.ico" />
 	<style>
 		@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
 	</style>
