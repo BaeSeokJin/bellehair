@@ -52,6 +52,7 @@
 			<li class="nav-item">
 				<a href="">Login　</a>
 				<a href="">　Join　</a>
+				<span>　　　　</span>
 			</li>
 		</ul>
 	</nav>
