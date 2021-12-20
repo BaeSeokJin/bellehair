@@ -19,7 +19,10 @@
 	
 <!-- body start!! -->
 <body>
+
+<!-- head 1 -->
 <%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
+
 <!-- body 1 : 기본 head 바디 -->
 <div id="header-wrapper">
 	<div id="header" class="container">
@@ -47,6 +50,8 @@
 	<img src="../../../resources/images/index/index-banner03.png"/>
 	<img src="../../../resources/images/index/index-banner04.png"/>
 </div>
+
+<!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
 <!-- body end!! -->

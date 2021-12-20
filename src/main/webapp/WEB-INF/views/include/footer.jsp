@@ -10,7 +10,13 @@
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
     <title>Document</title>
     <style>
-        @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+    
+    	@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+    	
+    	/* =====================================
+    	footer css
+    	===================================== */
+        
         html,body {
             margin: 0;
             padding: 0;
@@ -42,6 +48,38 @@
             width: 350px;
             float:left;
         }
+        
+        /* =====================================
+    	back-to-top css
+    	===================================== */
+    	
+    	#back-to-top {
+ 		    position: fixed;
+		    bottom: 3em;
+		    right: 3em;
+		    background-color: rgba(255, 255, 255, .9);
+		    color: #313943;
+		    border: none;
+		    border-radius: 5px;
+		    padding: 1em;
+		    text-transform: uppercase;
+		    cursor: pointer;
+		    font-weight: 700;
+		    box-shadow: 0 0 2em 0 rgba(0, 0, 0, .25);
+		    transition: all .3s ease-in-out;
+		    display: inline-block;
+		    opacity: 0;
+		    text-decoration: none;
+		    font-size: .75em;
+		}
+		#back-to-top:hover {
+		        background-color: #fff;
+		        padding: 1em 3em;
+		    }
+		#back-to-top.visible {
+		    opacity: 1;
+		}
+        
     </style>
 </head>
 <body>
@@ -51,7 +89,8 @@
 
             <div class="footer-section01">
                 <br>
-                <span>　　　　　　　　　　　　　　　　　　　　　　　　　　　　</span>　
+                <span>　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+                </span>　
                 <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">About Delight |</span>
                 <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">개인정보보호정책 |</span>
                 <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">이용약관 |</span>
@@ -76,8 +115,47 @@
                 <br>고객센터 : AM 9:00 ~ PM 6:00
                 <br>휴일 : 매주 화요일
             </div>
-            
         </div>
+        
+        <div>
+            <a id="back-to-top" href="#">Top</a>
+        </div>
+        
     </footer>
+    
+            <script>
+            var btt = document.getElementById('back-to-top'),
+                docElem = document.documentElement,
+                offset,
+                scrollPos,
+                docHeight;
+
+            docHeight = Math.max(docElem.offsetHeight, docElem.scrollHeight);
+            if(docHeight != 0){
+                offset = docHeight/25;
+            }
+
+            window.addEventListener('scroll', function(){
+                scrollPos = docElem.scrollTop;
+                btt.className = (scrollPos>offset)? 'visible': '';
+
+            });
+
+            btt.addEventListener('click', function(ev){
+                ev.preventDefault();
+                scrollToTop();
+            });
+
+            function scrollToTop(){
+                var scrollInterval = setInterval(function(){
+                    if(scrollPos != 0){
+                        window.scrollBy(0,-55);
+                    }else{
+                        clearInterval(scrollInterval);
+                    }
+                },15);
+            };
+        </script>
+    
 </body>
 </html>
