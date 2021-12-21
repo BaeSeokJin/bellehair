@@ -2,8 +2,8 @@
 
 :root{
 	--border-gray-color : #ccc1c1;
-	--naver-green-color: #e78f8f;
-	--naver-green-border-color: #e78f8f;
+	--naver-green-color: #c55c5c;
+	--naver-green-border-color:  #c55c5c;
 }
 
 *{
@@ -11,8 +11,15 @@
 	padding:0;
 }
 
+button{
+	font-size: 23px; font-family: 'Jeju Myeongjo', serif;
+}
+input{
+	font-family: serif;
+}
+
 .login-input-section-wrap{
-	padding-top: 60px;
+	padding-top: 30px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -23,10 +30,7 @@
 	height :48px;
 	border: solid 1px var(	--border-gray-color );
 	background: white;
-}
-
-.password-wrap{
-	margin-top: 13px;
+	font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 18px;
 }
 
 .login-input-wrap input{
@@ -40,6 +44,7 @@
 
 .login-button-wrap {
 	padding-top: 13px;
+	font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 18px;
 }
 
 .login-button-wrap button{
@@ -52,11 +57,28 @@
 	border: solid 1px var(--naver-green-border-color);
 }
 
+.help-button-wrap{
+	width: 300px;
+	height :48px;
+	background: white;
+	font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 18px;
+}
+
+.help-button-wrap button{
+    font-weight: 600;
+	width: 300px;
+	height :48px;
+	font-size: 18px;
+	background: #000000bd;
+	color: rgb(252, 249, 249);
+}
+
+
 .Easy-sgin-in-wrap{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding-top: 40px;
+	padding-top: 20px;
 }
 
 .Easy-sgin-in-wrap .sign-button-list{
