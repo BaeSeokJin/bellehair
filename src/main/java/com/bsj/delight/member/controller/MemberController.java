@@ -12,12 +12,12 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/join-form")
+	@GetMapping("/member/join-form")
 	public String searchPassword() { 
 		return "member/join-form";
 	}
 	
-	@GetMapping("/login-form")
+	@GetMapping("/member/login-form")
 	public String searchPassworsd() { 
 		return "member/login-form";
 	}

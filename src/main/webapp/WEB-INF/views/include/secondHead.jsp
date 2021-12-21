@@ -22,15 +22,14 @@
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1 style="font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 35px;"><a href="#">Delight</a></h1>
+			<h1 style="font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 35px;"><a href="/">Delight</a></h1>
 		</div>
 		<div id="menu">
 			<ul style="font-size: 21px; font-family: 'Jeju Myeongjo', serif;">
-				<li><a href="#">로그인</a></li>
-				<li><a href="#">회원가입</a></li>
-				<li><a href="#">이용후기</a></li>
-				<li><a href="#">찾아오는길</a></li>
-				<li><a href="#">문의하기</a></li>
+				<li><a href="/incompletePage">Reservation</a></li>
+				<li><a href="/incompletePage">Information</a></li>
+				<li><a href="/incompletePage">Community</a></li>
+				<li><a href="/incompletePage">Shop</a></li>
 			</ul>
 		</div>
 	</div>

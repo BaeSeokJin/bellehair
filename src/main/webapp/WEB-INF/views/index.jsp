@@ -11,7 +11,6 @@
 	<meta name="description" content="" />
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 	<link href="${contextPath}/resources/css/index.css" rel="stylesheet" type="text/css" media="all" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../../resources/image/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -19,26 +18,26 @@
 	<style>
 		@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
 	</style>
+	
+	<!-- head 1 -->
+	<%@ include file="/WEB-INF/views/include/firstHead.jsp" %> <!-- 파비콘포함 -->
 </head>	
 	
 <!-- body start!! -->
 <body>
 
-<!-- head 1 -->
-<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
-
 <!-- body 1 : 기본 head 바디 -->
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1 style="font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 35px;"><a href="#">Delight</a></h1>
+			<h1 style="font-size: 21px; font-family: 'Jeju Myeongjo', serif; font-size: 35px;"><a href="/">Delight</a></h1>
 		</div>
 		<div id="menu">
 			<ul style="font-size: 21px; font-family: 'Jeju Myeongjo', serif;">
-				<li><a href="#">이용후기</a></li>
-				<li><a href="#">찾아오는길</a></li>
-				<li><a href="#">문의하기</a></li>
-				<li><a href="#">로그인</a></li>
+				<li><a href="/incompletePage">Reservation</a></li>
+				<li><a href="/incompletePage">Information</a></li>
+				<li><a href="/incompletePage">Community</a></li>
+				<li><a href="/incompletePage">Shop</a></li>
 			</ul>
 		</div>
 	</div>
@@ -56,10 +55,10 @@
 <!-- body 2 :  -->
 <br>
 <div class="visual">
-    <img src="../../../resources/images/index/index-ad01.png"/>
-    <img src="../../../resources/images/index/index-ad02.png"/>
-    <img src="../../../resources/images/index/index-ad03.png"/>
-    <img src="../../../resources/images/index/index-ad04.png"/>
+    <a href="/incompletePage"><img src="../../../resources/images/index/index-ad01.png" /></a>
+    <a href="/incompletePage"><img src="../../../resources/images/index/index-ad02.png"/></a>
+    <a href="/incompletePage"><img src="../../../resources/images/index/index-ad03.png"/></a>
+    <a href="/incompletePage"><img src="../../../resources/images/index/index-ad04.png"/></a>
 </div>
 <br>
 
@@ -71,12 +70,12 @@
 <!-- body 3 :  -->
 <br>
 <div style="width: 1100px; height: 220px; margin:0 auto;">
-	<div style="float:left; width: 550px;"><img src="../../../resources/images/index/index-banner01.png"/></div>
-	<div style="float:left; width: 550px;"><img src="../../../resources/images/index/index-banner02.png"/></div>
+	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner01.png"/></a></div>
+	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner02.png"/></a></div>
 </div>
 <div style="width: 1100px; height: 220px; margin:0 auto;">
-	<div style="float:left; width: 550px;"><img src="../../../resources/images/index/index-banner03.png"/></div>
-	<div style="float:left; width: 550px;"><img src="../../../resources/images/index/index-banner04.png"/></div>
+	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner03.png"/></a></div>
+	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner04.png"/></a></div>
 </div>
 
 <div style="width: 1200px; margin: 0 auto;">

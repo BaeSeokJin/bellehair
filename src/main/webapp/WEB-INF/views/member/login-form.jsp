@@ -4,12 +4,12 @@
 <html>
 <head>
 	<link href="${contextPath}/resources/css/login-form.css" rel="stylesheet" type="text/css" media="all" />
+
+	<!-- head 1,2 -->
+	<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
+	<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
 </head>
 <body>
-
-<!-- head 1,2 -->
-<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
-<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
 
 <div class="main-container" >
 	<!-- Login -->

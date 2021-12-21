@@ -12,6 +12,7 @@
 	<title>Delight</title>
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
+	<link rel="shortcut icon" type="image/x-icon" href="../../resources/images/include/favicon.ico" /> <!-- favicon -->
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 	<link href="../../resources/css/index.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="shortcut icon" type="image/x-icon" href="../../../resources/images/include/favicon.ico" />
@@ -50,8 +51,8 @@
 				<span></span>
 			</li>
 			<li class="nav-item">
-				<a href="">Login　</a>
-				<a href="">　Join　</a>
+				<a href="/member/login-form">Login　</a>
+				<a href="/member/join-form">　Join　</a>
 				<span>　　　　</span>
 			</li>
 		</ul>

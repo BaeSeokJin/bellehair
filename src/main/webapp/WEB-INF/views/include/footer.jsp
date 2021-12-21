@@ -91,11 +91,11 @@
                 <br>
                 <span>　　　　　　　　　　　　　　　　　　　　　　　　　　　　
                 </span>　
-                <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">About Delight |</span>
-                <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">개인정보보호정책 |</span>
-                <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">이용약관 |</span>
-                <span onclick="javascriot:location.href='https://www.naver.com/'" style="cursor: pointer;">찾아오는길 |</span>
-                <span onclick="javascriot:location.href='https://github.com/BaeSeokJin/delight'" style="cursor: pointer;">Github v1.0.1 </span>
+                <span onclick="location='incompletePage'" style="cursor: pointer;">About Delight |</span>
+                <span onclick="location='incompletePage'" style="cursor: pointer;">개인정보보호정책 |</span>
+                <span onclick="location='incompletePage'" style="cursor: pointer;">이용약관 |</span>
+                <span onclick="location='incompletePage'" style="cursor: pointer;">찾아오는길 |</span>
+                <span onclick="location.href='https://github.com/BaeSeokJin/delight'" style="cursor: pointer;">Github v1.0.1 </span>
             </div>
             
             <br><br><br>

@@ -8,13 +8,13 @@
 	<style>
 		@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
 	</style>
+	
+	<!-- head 1,2 -->
+	<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
+	<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
 </head>
 
 <body>
-
-<!-- head 1,2 -->
-<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
-<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
 
 <!-- join-form -->
 <div class="join-container"><!-- 컨테이너 열기 -->

@@ -11,4 +11,9 @@ public class IndexController {
 		return "index";
 	}
 	
+	@GetMapping("/incompletePage")
+	public String incompletePage() {
+		return "incompletePage";
+	}
+	
 }
