@@ -34,10 +34,10 @@
 		</div>
 		<div id="menu">
 			<ul style="font-size: 21px; font-family: 'Jeju Myeongjo', serif;">
-				<li><a href="/incompletePage">Reservation</a></li>
-				<li><a href="/incompletePage">Information</a></li>
-				<li><a href="/incompletePage">Community</a></li>
-				<li><a href="/incompletePage">Shop</a></li>
+				<li><a href="/reservation/reservation">Reservation</a></li>
+				<li><a href="/information/aboutDelight">Information</a></li>
+				<li><a href="/community/hairForum">Community</a></li>
+				<li><a href="/information/address">Address</a></li>
 			</ul>
 		</div>
 	</div>
@@ -70,12 +70,12 @@
 <!-- body 3 :  -->
 <br>
 <div style="width: 1100px; height: 220px; margin:0 auto;">
-	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner01.png"/></a></div>
-	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner02.png"/></a></div>
+	<div style="float:left; width: 550px;"><a href="/reservation/reservation"><img src="../../../resources/images/index/index-banner01.png"/></a></div>
+	<div style="float:left; width: 550px;"><a href="http://pf.kakao.com/_cgcKb"><img src="../../../resources/images/index/index-banner02.png"/></a></div>
 </div>
 <div style="width: 1100px; height: 220px; margin:0 auto;">
-	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner03.png"/></a></div>
-	<div style="float:left; width: 550px;"><a href="/incompletePage"><img src="../../../resources/images/index/index-banner04.png"/></a></div>
+	<div style="float:left; width: 550px;"><a href="/community/hairForum"><img src="../../../resources/images/index/index-banner03.png"/></a></div>
+	<div style="float:left; width: 550px;"><a href="/member/join-form"><img src="../../../resources/images/index/index-banner04.png"/></a></div>
 </div>
 
 <div style="width: 1200px; margin: 0 auto;">

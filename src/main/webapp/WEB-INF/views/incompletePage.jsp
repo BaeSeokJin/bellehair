@@ -25,12 +25,6 @@
             text-align: center;
         }
     </style>
-	
-	<!-- head 1,2 -->
-	<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
-	<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
-	<%@ include file="/WEB-INF/views/include/informationHead.jsp" %>
-	<%@ include file="/WEB-INF/views/include/communityHead.jsp" %>
 </head>	
 	
 <body>

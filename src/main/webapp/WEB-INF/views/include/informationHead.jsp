@@ -47,9 +47,9 @@
                 <li class="nav-item-infor">
                     <a href="/incompletePage" style="font-size: 30px; font-weight: 600; color: brown;">Information</a>
                     <span>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
-                    <a href="/incompletePage">About Delight　　</a>
-                    <a href="/incompletePage">Price　　</a>
-                    <a href="/incompletePage">Address　</a>
+                    <a href="/information/aboutDelight">About Delight　　</a>
+                    <a href="/information/price">Price　　</a>
+                    <a href="/information/address">Address　</a>
                 </li>
             </ul>
         </div>
