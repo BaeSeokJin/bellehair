@@ -1,0 +1,38 @@
+.join-container{
+    width: 400px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #efe2e2;
+    font-family: 'Jeju Myeongjo', serif;
+    border-radius: 80px 80px 80px 80px;
+}
+
+.delight{
+    font-size: 50px;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.section01{
+    padding-bottom: 10px;
+}
+
+.join-text{
+    font-weight: 600;
+    font-size: 20px;
+    ;
+}
+
+input{
+    width: 375px;
+    height: 25px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+button {
+    font-family: 'Jeju Myeongjo', serif;
+    font-size: 17px;
+}
