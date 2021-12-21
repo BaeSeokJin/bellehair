@@ -8,6 +8,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Delight</title>
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+  
+  	<!-- head 1,2 -->
+	<%@ include file="/WEB-INF/views/include/firstHead.jsp" %>
+	<%@ include file="/WEB-INF/views/include/secondHead.jsp" %>
     
     <style>
         @import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
