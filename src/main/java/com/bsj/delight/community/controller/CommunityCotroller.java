@@ -5,15 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CommunityCotroller { 
+
+	@GetMapping("/community/hairForum")
+	public String hairForum() {
+		return "community/hairForum";
+	}
+	
+	@GetMapping("/community/hairForumDetail")
+	public String hairForumDetail() {
+		return "community/hairForumDetail";
+	}
 	
 	@GetMapping("/community/event")
 	public String event() {
 		return "community/event";
-	}
-	
-	@GetMapping("/community/hairForum")
-	public String hairForum() {
-		return "community/hairForum";
 	}
 	
 	@GetMapping("/community/notice")
