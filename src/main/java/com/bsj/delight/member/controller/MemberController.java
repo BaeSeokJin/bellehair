@@ -22,4 +22,9 @@ public class MemberController {
 		return "member/login-form";
 	}
 	
+	@GetMapping("/member/mypage")
+	public String mypage() { 
+		return "member/mypage";
+	}
+	
 }
