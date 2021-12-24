@@ -18,9 +18,7 @@ public class MemberController {
 	
 	// 회원가입 페이지로 이동
 	@GetMapping("join-form")
-	public String joinForm() {
-		return "member/join-form";
-	}
+	public void joinForm() {}
 	
 	// 회원가입 하기 
 	@PostMapping("join")
@@ -32,14 +30,10 @@ public class MemberController {
 	
 	// 로그인 페이지로 이동
 	@GetMapping("login-form")
-	public String searchPassworsd() { 
-		return "member/login-form";
-	}
+	public void loginForm() {}
 	
 	// 마이페이지로 이동
 	@GetMapping("mypage")
-	public String mypage() { 
-		return "member/mypage";
-	}
+	public void mypage() {}
 	
 }
