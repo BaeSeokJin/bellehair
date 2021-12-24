@@ -3,26 +3,41 @@ package com.bsj.delight.member.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bsj.delight.member.model.dto.Member;
 import com.bsj.delight.member.model.service.MemberService;
 
 @Controller
+@RequestMapping("member")
 public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/member/join-form")
-	public String searchPassword() { 
+	// 회원가입 페이지로 이동
+	@GetMapping("join-form")
+	public String joinForm() {
 		return "member/join-form";
 	}
 	
-	@GetMapping("/member/login-form")
+	// 회원가입 하기 
+	@PostMapping("join")
+	public String join(Member member) {
+		System.out.println(member);
+		memberService.insertMember(member);
+		return "index";
+	}
+	
+	// 로그인 페이지로 이동
+	@GetMapping("login-form")
 	public String searchPassworsd() { 
 		return "member/login-form";
 	}
 	
-	@GetMapping("/member/mypage")
+	// 마이페이지로 이동
+	@GetMapping("mypage")
 	public String mypage() { 
 		return "member/mypage";
 	}

@@ -14,9 +14,10 @@
    -->
   <mapper namespace="com.bsj.delight.member.model.repository.MemberRepository">
   
-  	<select id="selectPasswordByUserId" resultType="java.lang.String">
-  		select password from member where user_id = #{userId}
-  	</select>
+  	<insert id="insertMember">
+  		insert into member(user_code,user_id,name,nickname,password,email,tell) 
+  		values (sc_user_code.nextval,#{userId},#{name},#{nickname},#{password},#{email},#{tell})
+  	</insert>
   
   
   

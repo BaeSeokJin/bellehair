@@ -36,12 +36,5 @@ public class MemberControllerTest {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
 	
-	@Test
-	public void searchPassword() throws Exception {
-		mockMvc
-		.perform(get("/search-pw"))
-		.andExpect(status().isOk())
-		.andDo(print());
-	}
-	
+
 }
