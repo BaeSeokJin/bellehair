@@ -9,6 +9,11 @@
 <!-- <mappers>에 mapper를 매번 등록해주어야 한다 -->
 
 <configuration>
+
+  	<settings>
+  		<setting name="mapUnderscoreToCamelCase" value="true"/>
+  	</settings>
+  	
 	<mappers> 
 		<mapper resource="mybatis/mapper/memberMapper.xml"/>
 	</mappers>

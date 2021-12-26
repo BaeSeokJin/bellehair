@@ -32,6 +32,8 @@ public class MemberController {
 	@GetMapping("login-form")
 	public void loginForm() {}
 	
+	
+	
 	// 마이페이지로 이동
 	@GetMapping("mypage")
 	public void mypage() {}
