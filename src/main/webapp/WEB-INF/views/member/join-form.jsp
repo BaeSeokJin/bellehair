@@ -17,7 +17,7 @@
 <body>
 
 <div class="join-container"><!-- 컨테이너 열기 -->
-<form action="/member/join" method="post" id="frm_join">
+<form:form modelAttribute="member" action="/member/join" method="post" id="frm_join">
 
     <h1 class="delight">Delight</h1>
     <br><br>
@@ -26,14 +26,17 @@
     <!-- 아이디 입력 -->
     <div class="section01">        
         <label class="join-text" for="id">아이디</label><br>
-        <input type="text" name="userId" id="userId" value="${joinForm.userId}" required/>
-        <!-- <button type="button" style="margin-left: 304px;">중복확인</button> -->
+        <input type="text" name="userId" id="userId" required/>
+        <button type="button" id="btnIdCheck" style="margin-left: 304px;">중복확인</button>
+		<form:errors path="userId" cssClass="valid-msg"/>
+    
     </div>
 
     <!-- 비밀번호 입력 -->
     <div class="section01">
         <label class="join-text" for="password">비밀번호</label><br>
-        <input type="password" name="password" id="password" value="${joinForm.password}" required>
+        <input type="password" name="password" id="password" required>
+        <form:errors path="password" cssClass="valid-msg"/>
     </div>
 
 	<!--     
@@ -47,25 +50,28 @@
     <!-- 이름 입력 -->
     <div class="section01">
     <label class="join-text" for="name">이름</label><br>
-    <input type="text" name="name" placeholder="홍길동" value="${joinForm.name}" required>
+    <input type="text" name="name" placeholder="홍길동" required>
     </div>
 
     <!-- 닉네임 입력 -->
     <div class="section01">
         <label class="join-text" for="nickname">닉네임</label><br>
-        <input type="text" name="nickname" value="${joinForm.nickname}" required>
+        <input type="text" name="nickname" required>
     </div>  
     
     <!-- 전화번호 입력 -->
     <div class="section01">
         <label class="join-text" for="email">전화번호</label><br>
-        <input type="tel" name="tell" value="${joinForm.tell}" required>
+        <input type="tel" name="tell" id="tell" required >
+        <form:errors path="tell" cssClass="valid-msg"/>
+        
     </div><br>
 
     <!-- 이메일 입력 -->
     <div class="section01">
         <label class="join-text" for="email">이메일</label><br>
-        <input type="email" name="email" value="${joinForm.email}" required>
+        <input type="email" name="email" id="email" required>
+        <form:errors path="email" cssClass="valid-msg"/>
     </div><br>
 
 	<!--     
@@ -80,11 +86,13 @@
     <br>
     <button type="submit" style="margin-left: 120px; padding: 15px 60px 15px 60px; font-weight: 600;">Join</button>
 
-</form>  
+</form:form>  
 </div><!-- 컨테이너 닫기 -->
     
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
+<script type="text/javascript" src="/resources/js/member/joinForm.js"></script>
 
 </body>
 </html>

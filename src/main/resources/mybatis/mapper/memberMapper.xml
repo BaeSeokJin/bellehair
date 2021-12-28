@@ -19,6 +19,9 @@
   		values (sc_user_code.nextval,#{userId},#{name},#{nickname},#{password},#{email},#{tell})
   	</insert>
   
+  	<select id="authenticateUser" resultType="com.bsj.delight.member.model.dto.Member">
+  		select * from member where user_id = #{userId} and password = #{password}
+  	</select>
   
   
   </mapper>

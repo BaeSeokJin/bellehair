@@ -14,22 +14,23 @@
 <div class="main-container" >
 	<!-- Login -->
 	<br>
-	<div style="width: 465px; margin: 0 auto;">
-		<span style="font-family: 'Jeju Myeongjo', serif; font-size: 25px; font-weight: 600;">　Login</span>
-		<hr style="color: #f0e9e9; margin-top: 5px;">
-	</div>
-	<div class="login-input-section-wrap">
-	    <div class="login-input-wrap" >	
-	        <input placeholder="아이디를 입력하세요."></input>
-	    </div>
-	    <div class="login-input-wrap">	
-	        <input placeholder="비밀번호를 입력하세요." type="password"></input>
-	    </div>
-	    <div class="login-button-wrap">
-	        <button>로그인</button>
-	    </div>
-	</div>
-
+		<div style="width: 465px; margin: 0 auto;">
+			<span style="font-family: 'Jeju Myeongjo', serif; font-size: 25px; font-weight: 600;">　Login</span>
+			<hr style="color: #f0e9e9; margin-top: 5px;">
+		</div>
+	<form action="/member/login" method="post">
+		<div class="login-input-section-wrap">
+		    <div class="login-input-wrap" >	
+		        <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요."></input>
+		    </div>
+		    <div class="login-input-wrap">	
+		        <input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요."></input>
+		    </div>
+		    <div class="login-button-wrap">
+		        <button>로그인</button>
+		    </div>
+		</div>
+	</form>
 	<br>
 	
 	<!-- Help -->

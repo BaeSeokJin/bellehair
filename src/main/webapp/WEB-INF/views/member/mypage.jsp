@@ -158,14 +158,14 @@
                 <div>회원가입일</div>
             </div>
             <div class="mypage-section02-3">
-                <div style="padding-bottom: 10px;">유저코드</div>
-                <div style="padding-bottom: 10px;">아이디</div>
-                <div style="padding-bottom: 10px;">이름</div>
-                <div style="padding-bottom: 10px;">닉네임</div>
-                <div style="padding-bottom: 10px;">이메일</div>
-                <div style="padding-bottom: 10px;">전화번호</div>
-                <div style="padding-bottom: 10px;">회원등급</div>
-                <div>회원가입일</div>
+                <div style="padding-bottom: 10px;">${authentication.userCode}</div>
+                <div style="padding-bottom: 10px;">${authentication.userId}</div>
+                <div style="padding-bottom: 10px;">${authentication.name}</div>
+                <div style="padding-bottom: 10px;">${authentication.nickname}</div>
+                <div style="padding-bottom: 10px;">${authentication.email}</div>
+                <div style="padding-bottom: 10px;">${authentication.tell}</div>
+                <div style="padding-bottom: 10px;">${authentication.grade}</div>
+                <div>${authentication.regDate}</div>
             </div>
         </div>
         
