@@ -17,13 +17,13 @@
 <body>
 
 <div class="join-container"><!-- 컨테이너 열기 -->
-<form:form modelAttribute="member" action="/member/join" method="post" id="frm_join">
+<form:form modelAttribute="joinForm" action="/member/join" method="post" id="frm_join">
 
     <h1 class="delight">Delight</h1>
     <br><br>
 
     
-    <!-- 아이디 입력 -->
+    <!-- 아이디 입력 + 벨리데이터 -->
     <div class="section01">        
         <label class="join-text" for="id">아이디</label><br>
         <input type="text" name="userId" id="userId" required/>
@@ -32,7 +32,7 @@
     
     </div>
 
-    <!-- 비밀번호 입력 -->
+    <!-- 비밀번호 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="password">비밀번호</label><br>
         <input type="password" name="password" id="password" required>
@@ -59,15 +59,16 @@
         <input type="text" name="nickname" required>
     </div>  
     
-    <!-- 전화번호 입력 -->
+    <!-- 전화번호 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="email">전화번호</label><br>
         <input type="tel" name="tell" id="tell" required >
         <form:errors path="tell" cssClass="valid-msg"/>
-        
-    </div><br>
+    </div>
+    
+    <br>
 
-    <!-- 이메일 입력 -->
+    <!-- 이메일 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="email">이메일</label><br>
         <input type="email" name="email" id="email" required>
@@ -92,7 +93,7 @@
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
-<script type="text/javascript" src="/resources/js/member/joinForm.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/member/joinForm.js"></script> -->
 
 </body>
 </html>

@@ -36,5 +36,16 @@ public class MemberControllerTest {
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
 	
-
+	@Test
+	public void joinTest() throws Exception {
+		mockMvc.perform(post("/member/join")
+				.param("userId", "joinTest3")
+				.param("password", "1234")
+				.param("tell", "010-1111-2222")
+				.param("email", "hhh@hhh.com"))
+		.andExpect(status().isOk())
+		.andDo(print());
+	}
+	
+	
 }

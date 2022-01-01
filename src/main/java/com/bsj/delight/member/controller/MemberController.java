@@ -5,7 +5,11 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,14 +17,29 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bsj.delight.member.model.dto.Member;
 import com.bsj.delight.member.model.service.MemberService;
 import com.bsj.delight.member.validator.JoinForm;
+import com.bsj.delight.member.validator.JoinFormValidator;
 
 @Controller
 @RequestMapping("member")
 public class MemberController {
 
-	@Autowired
+	//MemberService 선언
 	private MemberService memberService;
+	//JoinFormValidator 선언
+	private JoinFormValidator joinFormValidator;
 	
+	public MemberController(MemberService memberService, JoinFormValidator joinFormValidator) {
+		super();
+		this.memberService = memberService;
+		this.joinFormValidator = joinFormValidator;
+	}
+	
+	// model의 속성 중에 속성명이 joinForm인 속성이 있는 경우 initBinder 메서드 실행
+	@InitBinder(value = "joinForm") 
+	public void initBinder(WebDataBinder webDataBinder) {
+		webDataBinder.addValidators(joinFormValidator);
+	}
+
 	// 회원가입 - 페이지 이동
 	@GetMapping("join-form")
 	public void joinForm() {}
@@ -39,7 +58,14 @@ public class MemberController {
 	
 	// 회원가입 - 실행
 	@PostMapping("join")
-	public String join(JoinForm form) {
+	public String join(@Validated JoinForm form
+			, Errors errors // 반드시 검증될 객체 바로 뒤에 작성
+			) {
+		
+		if(errors.hasErrors()){
+			return "member/join-form";
+		}
+		
 		memberService.insertMember(form);
 		return "index";
 	}
@@ -52,8 +78,10 @@ public class MemberController {
 	// 로그인  - 실행(세션등록)
 	@PostMapping("login")
 	public String login(Member member, HttpSession session) {
-		//Member certifiedUser = memberService.authenticateUser(member);
-		//session.setAttribute("authentication", certifiedUser);
+		Member certifiedUser = memberService.authenticateUser(member);
+		System.out.println(member);
+		System.out.println(certifiedUser);
+		session.setAttribute("authentication", certifiedUser);
 		return "redirect:/member/mypage";
 	}
 	
