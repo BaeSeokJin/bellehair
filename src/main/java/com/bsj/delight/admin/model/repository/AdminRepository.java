@@ -12,5 +12,5 @@ public interface AdminRepository {
 	
 	@Select("select * from member")
 	List<Member> selectAllMembers();
-	
+	 
 }
