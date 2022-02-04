@@ -15,7 +15,7 @@ public interface MemberRepository {
 	// 로그인에 필요한 세션 불러오기
 	Member authenticateUser(Member member);
 
-	// 
+	// 아이디 체크 기능
 	@Select("select * from member where user_id = #{userId}")
 	Member selectMemberByUserId(String userId);
 	

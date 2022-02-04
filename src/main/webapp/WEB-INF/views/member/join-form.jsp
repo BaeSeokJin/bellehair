@@ -17,7 +17,7 @@
 <body>
 
 <div class="join-container"><!-- 컨테이너 열기 -->
-<form:form modelAttribute="joinForm" action="/member/join" method="post" id="frm_join">
+<form:form modelAttribute="joinForm" action="/member/join" method="post" id="frm_join"> <!-- 모델 객체에 joinForm라는 속성으로 넘어오는 객체에 대해 직접적으로 접근 할 수 있음 -->
 
     <h1 class="delight">Delight</h1>
     <br><br>
@@ -29,7 +29,6 @@
         <input type="text" name="userId" id="userId" required/>
         <button type="button" id="btnIdCheck" style="margin-left: 304px;">중복확인</button>
 		<form:errors path="userId" cssClass="valid-msg"/>
-    
     </div>
 
     <!-- 비밀번호 입력 + 벨리데이터 -->
@@ -62,7 +61,7 @@
     <!-- 전화번호 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="email">전화번호</label><br>
-        <input type="tel" name="tell" id="tell" required >
+        <input type="tel" name="tell" id="tell" placeholder="숫자만 입력하세요" required >
         <form:errors path="tell" cssClass="valid-msg"/>
     </div>
     
@@ -93,7 +92,7 @@
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
-<!-- <script type="text/javascript" src="/resources/js/member/joinForm.js"></script> -->
+<script type="text/javascript" src="/resources/js/member/joinForm.js"></script>
 
 </body>
 </html>
