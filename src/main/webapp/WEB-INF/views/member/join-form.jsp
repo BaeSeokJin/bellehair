@@ -92,7 +92,7 @@
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
-<script type="text/javascript" src="/resources/js/member/joinForm.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/member/joinForm.js"></script> -->
 
 </body>
 </html>

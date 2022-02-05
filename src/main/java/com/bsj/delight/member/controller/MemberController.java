@@ -63,7 +63,7 @@ public class MemberController {
 			) {
 		
 		if(errors.hasErrors()){
-			return "member/join-form";
+			return "member/join-form"; // 후속처리로 join-form로 되돌려 놓는다  
 		}
 		
 		memberService.insertMember(form);
