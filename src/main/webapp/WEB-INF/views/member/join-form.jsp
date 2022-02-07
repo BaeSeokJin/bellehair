@@ -26,15 +26,26 @@
     <!-- 아이디 입력 + 벨리데이터 -->
     <div class="section01">        
         <label class="join-text" for="id">아이디</label><br>
-        <input type="text" name="userId" id="userId" required/>
+        <input type="text" name="userId" id="userId" 
+			<c:if test="${empty error.userId}">
+				value="${joinForm.userId}"   
+			</c:if>
+         required/>
         <button type="button" id="btnIdCheck" style="margin-left: 304px;">중복확인</button>
+		<c:if test="${empty error.userId}">
+			<span id="idCheck" class="valid-msg"></span>   
+		</c:if>
 		<form:errors path="userId" cssClass="valid-msg"/>
     </div>
 
     <!-- 비밀번호 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="password">비밀번호</label><br>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" placeholder="영어,숫자,특수문자 조합의 8글자 이상 입력하세요."
+			<c:if test="${empty error.password}">
+				value="${joinForm.password}"   
+			</c:if>        
+         required>
         <form:errors path="password" cssClass="valid-msg"/>
     </div>
 
@@ -61,7 +72,11 @@
     <!-- 전화번호 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="email">전화번호</label><br>
-        <input type="tel" name="tell" id="tell" placeholder="숫자만 입력하세요" required >
+        <input type="tel" name="tell" id="tell" placeholder="숫자만 입력하세요"
+			<c:if test="${empty error.tell}">
+				value="${joinForm.tell}"   
+			</c:if>         
+         required >
         <form:errors path="tell" cssClass="valid-msg"/>
     </div>
     
@@ -70,7 +85,11 @@
     <!-- 이메일 입력 + 벨리데이터 -->
     <div class="section01">
         <label class="join-text" for="email">이메일</label><br>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" placeholder="이메일 형식에 맞춰 입력하세요"
+   			<c:if test="${empty error.email}">
+				value="${joinForm.email}"   
+			</c:if> 
+        required>
         <form:errors path="email" cssClass="valid-msg"/>
     </div><br>
 
@@ -92,7 +111,7 @@
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 
-<!-- <script type="text/javascript" src="/resources/js/member/joinForm.js"></script> -->
+<script type="text/javascript" src="/resources/js/member/joinForm.js"></script>
 
 </body>
 </html>

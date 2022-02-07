@@ -20,6 +20,9 @@
 		</div>
 	<form action="/member/login" method="post">
 		<div class="login-input-section-wrap">
+			<c:if test="${not empty message}">
+				<span class="valid-msg">${message}</span><br><br>
+			</c:if>
 		    <div class="login-input-wrap" >	
 		        <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요."></input>
 		    </div>
