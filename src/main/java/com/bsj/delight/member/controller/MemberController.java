@@ -1,5 +1,7 @@
 package com.bsj.delight.member.controller;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -12,11 +14,15 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.bsj.delight.common.code.ErrorCode;
+import com.bsj.delight.common.exception.HandlableException;
 import com.bsj.delight.common.validator.ValidateResult;
 import com.bsj.delight.member.model.dto.Member;
 import com.bsj.delight.member.model.service.MemberService;
@@ -49,6 +55,7 @@ public class MemberController {
 	public void joinForm(Model model) {
 		model.addAttribute(new JoinForm()).addAttribute("error", new ValidateResult().getError());
 		//체인이라서 한줄로 가능
+		//throw new HandlableException(ErrorCode.AUTHENTICATION_FAILED_ERROR); //예외테스트 코드
 	}
 	
 	// 회원가입 - 아이디 체크
@@ -68,20 +75,39 @@ public class MemberController {
 	public String join(@Validated JoinForm form
 			, Errors errors // 반드시 검증될 객체 바로 뒤에 작성
 			, Model model
+			, HttpSession session
+			, RedirectAttributes redirectAttr
 			) {
-		
 		ValidateResult vr = new ValidateResult();
 		model.addAttribute("error", vr.getError());		
-		
 		if(errors.hasErrors()){
 			vr.addErrors(errors);
 			return "member/join-form"; // 후속처리로 join-form로 되돌려 놓는다  
 		}
-		
-		memberService.insertMember(form);
-		return "index";
+		String token = UUID.randomUUID().toString(); //token 생성
+		session.setAttribute("persistUser", form);
+		session.setAttribute("persistToken", token);
+		memberService.authenticateByEmail(form, token); //이메일에 의한 인증 메서드
+		redirectAttr.addFlashAttribute("message", "얏호. 이메일이 발송되었습니다.");
+		return "redirect:/";
 	}
-	
+
+	// 회원가입 - join-impl
+	@GetMapping("join-impl/{token}")
+	public String joinImpl(@PathVariable String token
+			, @SessionAttribute(value = "persistToken", required = false) String persistToken
+			, @SessionAttribute(value = "persistUser", required = false) JoinForm form
+			, HttpSession session
+			, RedirectAttributes redirectAttrs) {
+		if(!token.equals(persistToken)) {
+			throw new HandlableException(ErrorCode.AUTHENTICATION_FAILED_ERROR);
+		}
+		memberService.insertMember(form);
+		redirectAttrs.addFlashAttribute("message", "짜잔! 회원가입을 환영합니다! 로그인해주세요!");
+		session.removeAttribute("persistToken");
+		session.removeAttribute("persistUser"); // 세션 지우는거 또 까먹냐 ㅠㅠ난 바보
+		return "redirect:/member/login-form";
+	}
 	
 	// 로그인 - 페이지로 이동
 	@GetMapping("login-form")

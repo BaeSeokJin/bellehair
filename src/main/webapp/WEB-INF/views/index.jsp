@@ -26,6 +26,10 @@
 <!-- body start!! -->
 <body>
 
+<c:if test="${not empty message}">
+	<span class="valid-msg">${message}</span>
+</c:if>
+
 <!-- body 1 : 기본 head 바디 -->
 <div id="header-wrapper">
 	<div id="header" class="container">

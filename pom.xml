@@ -53,6 +53,13 @@
 		    <artifactId>spring-context-support</artifactId>
 		    <version>5.3.10</version>
 		</dependency>		
+		
+		<!-- Spring Security Crypto : 스프링 페스워드 인코딩 -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-crypto</artifactId>
+		    <version>5.5.2</version>
+		</dependency>
 				
 		<!-- AspectJ -->
 		<dependency>
@@ -173,6 +180,13 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+	
+		<!-- mail 발송 -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
+		    <version>1.6.2</version>
 		</dependency>
 	
 		<!-- Test -->
