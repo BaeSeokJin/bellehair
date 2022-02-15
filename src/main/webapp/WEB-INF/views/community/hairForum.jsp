@@ -124,8 +124,10 @@
 <div class="containner">
 
     <div class="hairForum-1">Hair Forum</div>
-    <div class="hairForum-2">미용 후기, 머리카락 관리 등 자유롭게 글을 작성하실 수 있습니다.</div>
-
+    <div class="hairForum-2">
+    	미용 후기, 머리카락 관리 등 자유롭게 글을 작성하실 수 있습니다.
+    	<button type="button" onclick="location.href='/community/hairForumWrite'" style="margin-left:340px; font-size: 17px;">글쓰기</button>
+    </div>
 
     <div class="boardContainner">
         <div class="section01">
