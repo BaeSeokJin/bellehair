@@ -129,6 +129,12 @@ public class MemberController {
 		return "redirect:/member/mypage";
 	}
 	
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("authentication");
+		return "redirect:/";
+	}
+	
 	// 마이페이지 - 이동
 	@GetMapping("mypage")
 	public void mypage() {}

@@ -50,10 +50,20 @@
 			<li class="nav-item"> 
 				<span></span>
 			</li>
+			
 			<li class="nav-item">
-				<a href="/member/login-form">Login　</a>
-				<a href="/member/join-form">　Join　</a>
-				<span>　　　　</span>
+				<c:if test="${empty authentication}">
+					<a href="/member/login-form">Login　</a>
+					<a href="/member/join-form">　Join　</a>
+					<span>　　　　</span>
+				</c:if>
+				
+				<c:if test="${not empty authentication}">
+					<span style="color: #f7f1dd">** ${authentication.name}님 접속을 환영합니다 **　　　　</span>
+					<a href="/member/mypage" style="color: #bcddd2">Mypage　</a>
+					<a href="/member/logout" style="color: #bcddd2">　Logout　</a>
+					<span>　　　　</span>
+				</c:if>
 			</li>
 		</ul>
 	</nav>
