@@ -8,7 +8,7 @@ public class ReservationController {
 	
 	@GetMapping("/reservation/reservation")
 	public String reservation() { 
-		return "reservation/reservation";
+		return "incompletePage";
 	}
 	
 }

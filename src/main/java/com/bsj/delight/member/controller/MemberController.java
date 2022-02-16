@@ -126,7 +126,7 @@ public class MemberController {
 		System.out.println(member);
 		System.out.println(certifiedUser);
 		session.setAttribute("authentication", certifiedUser);
-		return "redirect:/member/mypage";
+		return "redirect:/";
 	}
 	
 	@GetMapping("logout")

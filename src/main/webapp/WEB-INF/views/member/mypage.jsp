@@ -172,7 +172,7 @@
         <br>
 
         <!-- section03 -->
-        <div class="mypage-section03"><button>개인정보 수정</button></div>
+        <!-- <div class="mypage-section03"><button>개인정보 수정</button></div> -->
 
         <hr class="myPage-hr">
 

@@ -19,6 +19,7 @@
 
         .containner{
             width: 1000px;
+            height: 500px;
             margin: 0 auto;
             background-color: #f0e9e9;
             color: #888;
@@ -44,7 +45,7 @@
         }
         .boardContainner {
             margin: 0 auto;
-            height: 68px;
+            /* height: 68px; */
             width: 900px;
 
         }
@@ -130,75 +131,23 @@
     </div>
 
     <div class="boardContainner">
-        <div class="section01">
-            <div class="section01-1">행복한미용사</div><!-- 작성자 닉네임 -->
-            <div class="section01-2">2021-12-22 13:34:01</div><!-- 작성 날짜 -->
-        </div>
-        <div class="section02">
-            <div class="section02-1">오랜만에 올리는 머리관리 방법</div><!-- title -->
-            <div>
-                <div class="section02-2">글번호 : 3321</div><!-- No -->
-                <div class="section02-3">카테고리 : 사는얘기</div><!-- category -->
-            </div>
-        </div>
-        <div class="section03">
-            <div><i class="xi-comment xi-fw"></i> Comments 14</div><!-- comments -->
-            <div><i class="xi-eye-o xi-fw"></i> Looks 154</div><!-- looks -->
-        </div>
-    </div>
-
-    <div class="boardContainner">
-        <div class="section01">
-            <div class="section01-1">행복한미용사</div><!-- 작성자 닉네임 -->
-            <div class="section01-2">2021-12-22 13:34:01</div><!-- 작성 날짜 -->
-        </div>
-        <div class="section02">
-            <div class="section02-1">오랜만에 올리는 머리관리 방법</div><!-- title -->
-            <div>
-                <div class="section02-2">글번호 : 3321</div><!-- No -->
-                <div class="section02-3">카테고리 : 사는얘기</div><!-- category -->
-            </div>
-        </div>
-        <div class="section03">
-            <div><i class="xi-comment xi-fw"></i> Comments 14</div><!-- comments -->
-            <div><i class="xi-eye-o xi-fw"></i> Looks 154</div><!-- looks -->
-        </div>
-    </div>
-
-    <div class="boardContainner">
-        <div class="section01">
-            <div class="section01-1">행복한미용사</div><!-- 작성자 닉네임 -->
-            <div class="section01-2">2021-12-22 13:34:01</div><!-- 작성 날짜 -->
-        </div>
-        <div class="section02">
-            <div class="section02-1">오랜만에 올리는 머리관리 방법</div><!-- title -->
-            <div>
-                <div class="section02-2">글번호 : 3321</div><!-- No -->
-                <div class="section02-3">카테고리 : 사는얘기</div><!-- category -->
-            </div>
-        </div>
-        <div class="section03">
-            <div><i class="xi-comment xi-fw"></i> Comments 14</div><!-- comments -->
-            <div><i class="xi-eye-o xi-fw"></i> Looks 154</div><!-- looks -->
-        </div>
-    </div>
-
-    <div class="boardContainner">
-        <div class="section01">
-            <div class="section01-1">행복한미용사</div><!-- 작성자 닉네임 -->
-            <div class="section01-2">2021-12-22 13:34:01</div><!-- 작성 날짜 -->
-        </div>
-        <div class="section02">
-            <div class="section02-1">오랜만에 올리는 머리관리 방법</div><!-- title -->
-            <div>
-                <div class="section02-2">글번호 : 3321</div><!-- No -->
-                <div class="section02-3">카테고리 : 사는얘기</div><!-- category -->
-            </div>
-        </div>
-        <div class="section03">
-            <div><i class="xi-comment xi-fw"></i> Comments 14</div><!-- comments -->
-            <div><i class="xi-eye-o xi-fw"></i> Looks 154</div><!-- looks -->
-        </div>
+    	<c:forEach items="${list}" var="reportList">
+	        <div class="section01">
+	            <div class="section01-1">${reportList.userId}</div><!-- 작성자 닉네임 -->
+	            <div class="section01-2">${reportList.createAt}</div><!-- 작성 날짜 -->
+	        </div>
+	        <div class="section02">
+	            <div class="section02-1">${reportList.title}</div><!-- title -->
+	            <div>
+	                <div class="section02-2">글번호 : ${reportList.bdIdx}</div><!-- 글번호 -->
+	                <div class="section02-3">카테고리 : ${reportList.category}</div><!-- category -->
+	            </div>
+	        </div>
+	        <div class="section03">
+	            <div><i class="xi-comment xi-fw"></i> Comments ${reportList.good}</div><!-- comments -->
+	            <div><i class="xi-eye-o xi-fw"></i> Looks ${reportList.good}</div><!-- looks -->
+	        </div>
+        </c:forEach>
     </div>
 
 

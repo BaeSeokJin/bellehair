@@ -1,6 +1,7 @@
 package com.bsj.delight.community.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -30,7 +31,13 @@ public class CommunityCotroller {
 	
 	// hairForum 페이지로 들어가기	
 	@GetMapping("/community/hairForum")
-	public String hairForum() {
+	public String hairForum(Board board
+							, Model model) {
+		
+		List<Board> list = communityService.getBoardList(board);
+		logger.info("list :" + list);
+		model.addAttribute("list", list);
+		
 		return "community/hairForum";
 	}
 	
@@ -55,11 +62,14 @@ public class CommunityCotroller {
 		Member member = (Member) session.getAttribute("authentication");
 		
 		String userCode = member.getUserCode();
+		String userId = member.getUserId();
 		
 		Map<String, Object> commandMap = new HashMap<String, Object>();
 		commandMap.put("title", board.getTitle());
 		commandMap.put("content", board.getContent());
 		commandMap.put("userCode", userCode);
+		commandMap.put("userId", userId);
+		
 		//commandMap.put(userCode, board.getUserCode());
 		
 		

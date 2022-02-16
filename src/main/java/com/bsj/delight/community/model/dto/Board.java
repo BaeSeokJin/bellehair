@@ -16,4 +16,6 @@ public class Board {
 	private String isDel; // 게시글 블라인드 여부
 	private String good; // 추천수 
 	private String bad; // 비추천수 
+	private String userId; // 작성자 아이디 
+	
 }

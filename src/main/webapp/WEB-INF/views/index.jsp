@@ -38,7 +38,7 @@
 		</div>
 		<div id="menu">
 			<ul style="font-size: 21px; font-family: 'Jeju Myeongjo', serif;">
-				<li><a href="/reservation/reservation">Reservation</a></li>
+				<!-- <li><a href="/reservation/reservation">Reservation</a></li> -->
 				<li><a href="/information/aboutDelight">Information</a></li>
 				<li><a href="/community/hairForum">Community</a></li>
 				<li><a href="/information/address">Address</a></li>

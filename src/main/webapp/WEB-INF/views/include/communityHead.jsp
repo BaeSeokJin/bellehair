@@ -48,8 +48,8 @@
                     <a href="/member/login-form" style="font-size: 30px; font-weight: 600; color: brown;">Community</a>
                     <span>　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</span>
                     <a href="/community/hairForum">HairForum　　</a>
-                    <a href="/community/notice">Notice　　</a>
-                    <a href="/community/event">Event　　</a>
+                    <!-- <a href="/community/notice">Notice　　</a> -->
+                    <!-- <a href="/community/event">Event　　</a> -->
                     <a href="http://pf.kakao.com/_cgcKb">Question　</a>
                 </li>
             </ul>
