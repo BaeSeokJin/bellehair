@@ -87,7 +87,6 @@
         }
         .section02-1{
             font-size: 17px;
-            font-weight: 600;
             padding-bottom: 2px;
         }
         .section02-2{  
@@ -261,27 +260,30 @@
     <!-- 상세페이지 -->
     <div class="boardContainner">
         <div class="section01">
-            <div class="section01-1">카테고리 : 사는얘기</div>
-            <div class="section01-2">글번호 : 3321</div>
-            <div class="section01-2">작성일 : 2021-12-22 13:34:01</div>
-            <div class="section01-3">안녕하세요, 오랜만에 글한번 올려봅니다...</div>
+            <div class="section01-1">카테고리 : ${board.category}</div>
+            <div class="section01-2">글번호 : ${board.bdIdx}</div>
+            <div class="section01-2">작성일 : ${board.createAt}</div>
+            <div class="section01-3">${board.title}</div>
         </div>
         <div class="section02">
-            <div class="section02-1">Java의 눈물</div>
-            <div class="section02-2"><i class="xi-comment xi-fw"></i> Comments <b>14</b></div>
-            <div class="section02-3"><i class="xi-eye-o xi-fw"></i> Looks <b>154</b></div>
+            <div class="section02-1">작성자 : <b>${board.userId}</b></div>
+            <div class="section02-2"><i class="xi-comment xi-fw"></i> Comments <b>${board.good}</b></div>
+            <div class="section02-3"><i class="xi-eye-o xi-fw"></i> Looks <b>${board.cnt}</b></div>
         </div>
         <div class="section03">
-            <div>더미 데이터 !!</div>
+            <div>${board.content}</div>
         </div>
         <div class="section04">
             <br>
             <div>
-                <i class="xi-thumbs-up xi-2x xi-fw" style="color: rgb(111, 144, 233);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">10</span></i>　
-                <i class="xi-thumbs-down xi-2x xi-fw" style="color: rgb(194, 84, 84);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">3</span></i>
+                <i class="xi-thumbs-up xi-2x xi-fw" style="color: rgb(111, 144, 233);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">${board.good}</span></i>　
+                <i class="xi-thumbs-down xi-2x xi-fw" style="color: rgb(194, 84, 84);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">${board.good}</span></i>
             </div>
         </div>
     </div>
+
+	<a href="/community/removePosting?bdIdx=${board.bdIdx}">게시물 삭제</a>
+	<a href="/community/modifyPosting?bdIdx=${board.bdIdx}">게시물 수정</a>
 
     <br><br><br>
 
@@ -333,8 +335,12 @@
 <!-- 컨테이너 끝 -->
 </div>
     
+
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>        
   
+
+
+
 </body>
 </html>

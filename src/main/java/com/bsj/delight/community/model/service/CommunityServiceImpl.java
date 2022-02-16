@@ -25,4 +25,22 @@ public class CommunityServiceImpl implements CommunityService{
 	public List<Board> getBoardList(Board board) {
 		return communityRepository.getBoardList(board);
 	}
+
+	@Override
+	public Board hairForumDetail(String bdIdx) {
+		communityRepository.updateHitCount(bdIdx); // 조회수 증가
+		return communityRepository.hairForumDetail(bdIdx); // 게시글 상세 조회 리턴
+	}
+
+	@Override
+	public void removePosting(String bdIdx) {
+		communityRepository.removePosting(bdIdx);
+	}
+
+	@Override
+	public void modifyPostingEnd(String bdIdx, String title, String content) {
+		communityRepository.modifyPostingEnd(bdIdx, title, content);
+		
+	}
+
 }

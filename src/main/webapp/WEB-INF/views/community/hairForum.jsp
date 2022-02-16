@@ -137,7 +137,7 @@
 	            <div class="section01-2">${reportList.createAt}</div><!-- 작성 날짜 -->
 	        </div>
 	        <div class="section02">
-	            <div class="section02-1">${reportList.title}</div><!-- title -->
+	            <div class="section02-1" onclick="location.href='hairForumDetail?bdIdx=${reportList.bdIdx}'">${reportList.title}</div><!-- title -->
 	            <div>
 	                <div class="section02-2">글번호 : ${reportList.bdIdx}</div><!-- 글번호 -->
 	                <div class="section02-3">카테고리 : ${reportList.category}</div><!-- category -->
@@ -145,7 +145,7 @@
 	        </div>
 	        <div class="section03">
 	            <div><i class="xi-comment xi-fw"></i> Comments ${reportList.good}</div><!-- comments -->
-	            <div><i class="xi-eye-o xi-fw"></i> Looks ${reportList.good}</div><!-- looks -->
+	            <div><i class="xi-eye-o xi-fw"></i> Looks ${reportList.cnt}</div><!-- looks -->
 	        </div>
         </c:forEach>
     </div>

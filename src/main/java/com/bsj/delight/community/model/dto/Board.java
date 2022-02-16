@@ -17,5 +17,7 @@ public class Board {
 	private String good; // 추천수 
 	private String bad; // 비추천수 
 	private String userId; // 작성자 아이디 
+	private int cnt; // 조회수(+1씩증가)
+	
 	
 }

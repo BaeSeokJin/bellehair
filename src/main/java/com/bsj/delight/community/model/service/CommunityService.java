@@ -10,6 +10,15 @@ public interface CommunityService {
 	void reportInsertPost(Map<String, Object> commandMap);
 
 	List<Board> getBoardList(Board board);
+
+	Board hairForumDetail(String bdIdx);
+
+	void removePosting(String bdIdx);
+
+	void modifyPostingEnd(String bdIdx, String title, String content);
+
+
+
 	
 		
 }
