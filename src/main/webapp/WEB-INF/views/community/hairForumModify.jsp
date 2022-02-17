@@ -110,8 +110,12 @@
     <div class="hairForum">Hair Forum 글 수정하기</div>
     
     <!-- 상세페이지 -->
+    
     <div class="boardContainner">
 		<form:form action="/community/modifyPosting" method="post">
+		
+			<input type="hidden" name="bdIdx" value="${board.bdIdx}">
+			
 		    <div class="section01">
 		        <input type="text" name="title" value="${board.title}">
 		    </div>

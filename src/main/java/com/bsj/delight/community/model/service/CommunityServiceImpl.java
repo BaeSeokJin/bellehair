@@ -38,9 +38,12 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 
 	@Override
-	public void modifyPostingEnd(String bdIdx, String title, String content) {
-		communityRepository.modifyPostingEnd(bdIdx, title, content);
-		
+	public void modifyPostingEnd(Board board) {
+		communityRepository.modifyPostingEnd(board);
 	}
+
+
+
+
 
 }

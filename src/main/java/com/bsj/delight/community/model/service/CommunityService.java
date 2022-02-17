@@ -15,7 +15,10 @@ public interface CommunityService {
 
 	void removePosting(String bdIdx);
 
-	void modifyPostingEnd(String bdIdx, String title, String content);
+	void modifyPostingEnd(Board board);
+
+
+	
 
 
 

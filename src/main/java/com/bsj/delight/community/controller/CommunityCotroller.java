@@ -23,6 +23,7 @@ import com.bsj.delight.member.model.dto.Member;
 @Controller
 public class CommunityCotroller { 
 
+	private static final Board String = null;
 	private CommunityService communityService;
 	
 	public CommunityCotroller(CommunityService communityService) {
@@ -31,19 +32,17 @@ public class CommunityCotroller {
 	}
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	// hairForum 페이지로 들어가기	
+	// 글목록	
 	@GetMapping("/community/hairForum")
 	public String hairForum(Board board
 							, Model model) {
-		
 		List<Board> list = communityService.getBoardList(board);
 		logger.info("list :" + list);
 		model.addAttribute("list", list);
-		
 		return "community/hairForum";
 	}
 	
-	// hairForumDetail 페이지로 들어가기
+	// 상세보기
 	@GetMapping("/community/hairForumDetail")
 	public ModelAndView hairForumDetail(@RequestParam String bdIdx){
 		
@@ -58,7 +57,7 @@ public class CommunityCotroller {
 		return mv;
 	}
 	
-	// 게시글 삭제하기
+	// 글삭제
 	@GetMapping("/community/removePosting")
 	public String removePosting(@RequestParam String bdIdx) {
 		System.out.println("삭제 버튼 클릭 완료!! : " + bdIdx);
@@ -66,7 +65,7 @@ public class CommunityCotroller {
 		return "redirect:/community/hairForum";
 	}
 	
-	// 게시글 수정하기(페이지 이동)
+	// 글수정(폼이동)
 	@GetMapping("/community/modifyPosting")
 	public ModelAndView modifyPosting(@RequestParam String bdIdx) {
 		ModelAndView mv = new ModelAndView("/community/hairForumModify");
@@ -81,58 +80,47 @@ public class CommunityCotroller {
 		return mv;
 	}
 
-	// 게시글 수정하기(수정 완료 클락)
+	// 글수정(폼등록)
 	@PostMapping("/community/modifyPosting")
-	public ModelAndView modifyPostingEnd(@RequestParam(value="bdIdx", required=false) String bdIdx) {
-		ModelAndView mv = new ModelAndView("redirect:/community/hairForumDetail");
-		Board board = communityService.hairForumDetail(bdIdx);
+	public String modifyPostingEnd(Board board) {
+		System.out.println("=======================글수정(폼등록)=======================");
+		System.out.println("board의 값은? : " + board);
+		String bdIdx = board.getBdIdx();
 		String title = board.getTitle();
 		String content = board.getContent();
-		bdIdx = (String)bdIdx;
 		System.out.println(bdIdx);
 		System.out.println(title);
 		System.out.println(content);
-		communityService.modifyPostingEnd(bdIdx, title, content);
-		return mv;
+		System.out.println("=======================글수정(폼등록)=======================");
+		communityService.modifyPostingEnd(board);
+		//communityService.modifyPostingEnd(board);
+		return "redirect:/community/hairForum";
 	}
 	
-	
-
-	
-	
-	
-	// hairForumWrite 페이지로 들어가기
+	// 글쓰기(폼이동)
 	@GetMapping("/community/hairForumWrite")
 	public String hairForumWrite() {
 		return "community/hairForumWrite";
 	}
 	
-	// hairForumWrite 페이지에서 글 작성
+	// 글쓰기(폼등록)
 	@PostMapping("/community/hairForumWrite")
 	public String reportInsertPost(Model model
 								,@ModelAttribute Board board
 								,HttpSession session) {
-		
 		Member member = (Member) session.getAttribute("authentication");
-		
 		String userCode = member.getUserCode();
 		String userId = member.getUserId();
-		
 		Map<String, Object> commandMap = new HashMap<String, Object>();
 		commandMap.put("title", board.getTitle());
 		commandMap.put("content", board.getContent());
 		commandMap.put("userCode", userCode);
 		commandMap.put("userId", userId);
-		
 		//commandMap.put(userCode, board.getUserCode());
-		
-		
 		//logger.info("commandMap : " + commandMap);
 		//logger.info("model : " + model);
 		//System.out.println("model : " + model);
-		
 		communityService.reportInsertPost(commandMap);
-		
 		return "redirect:/community/hairForum";
 	}
 	

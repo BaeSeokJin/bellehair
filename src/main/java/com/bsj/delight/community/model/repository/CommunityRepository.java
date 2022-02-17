@@ -39,7 +39,7 @@ public interface CommunityRepository{
 	
 	@Update
 	("update board set title = #{title}, content = #{content} where BD_IDX = #{bdIdx}")
-	void modifyPostingEnd(String bdIdx, String title, String content);
+	void modifyPostingEnd(Board board);
 
 	
 	
