@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.bsj.delight.community.model.dto.Board;
+import com.bsj.delight.community.model.dto.Comments;
 
 public interface CommunityService {
 
@@ -16,6 +17,9 @@ public interface CommunityService {
 	void removePosting(String bdIdx);
 
 	void modifyPostingEnd(Board board);
+
+	List<Comments> geCommentsList(Comments comments, String bdIdx);
+
 
 
 	

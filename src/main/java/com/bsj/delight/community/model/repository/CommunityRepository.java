@@ -6,10 +6,12 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.bsj.delight.community.model.dto.Board;
+import com.bsj.delight.community.model.dto.Comments;
 
 @Mapper
 public interface CommunityRepository{
@@ -40,6 +42,14 @@ public interface CommunityRepository{
 	@Update
 	("update board set title = #{title}, content = #{content} where BD_IDX = #{bdIdx}")
 	void modifyPostingEnd(Board board);
+	
+	@Select
+	("select * from comments where bd_idx = #{bdIdx} order by CM_IDX desc")
+	List<Comments> geCommentsList(@Param("comments") Comments comments,@Param("bdIdx") String bdIdx);
+
+	
+	
+
 
 	
 	

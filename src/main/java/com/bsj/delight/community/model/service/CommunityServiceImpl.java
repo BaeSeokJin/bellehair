@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.bsj.delight.community.model.dto.Board;
+import com.bsj.delight.community.model.dto.Comments;
 import com.bsj.delight.community.model.repository.CommunityRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -41,6 +42,12 @@ public class CommunityServiceImpl implements CommunityService{
 	public void modifyPostingEnd(Board board) {
 		communityRepository.modifyPostingEnd(board);
 	}
+
+	@Override
+	public List<Comments> geCommentsList(Comments comments, String bdIdx) {
+		return communityRepository.geCommentsList(comments, bdIdx);
+	}
+
 
 
 

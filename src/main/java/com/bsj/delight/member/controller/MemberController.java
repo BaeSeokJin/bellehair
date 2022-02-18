@@ -123,8 +123,6 @@ public class MemberController {
 			return "redirect:/member/login-form";
 		}
 		
-		System.out.println(member);
-		System.out.println(certifiedUser);
 		session.setAttribute("authentication", certifiedUser);
 		return "redirect:/";
 	}

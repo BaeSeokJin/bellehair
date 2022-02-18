@@ -220,6 +220,19 @@
             border-left-style: solid;
             border-left-width: 1px;
         }
+        .commenting-3{
+            width: 143px;
+            height: 50px;
+            float: left;
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-left-style: solid;
+            border-left-width: 1px;
+        }
         .commentArea{
             width: 700px;
             margin: 5px;
@@ -293,34 +306,32 @@
         <div class="comments">Comments</div>
 
         <!-- 댓글이 있을때 -->
-        <div class="commented">
-            <div class="commented-1">작성자 : <b>Java의 눈물</b> | 작성일 : 2021-12-22 13:34:01</div>
-            <div class="commented-2">치킨치킨치킨</div>
-        </div>
-        <div class="commented">
-            <div class="commented-1">작성자 : <b>Java의 눈물</b> | 작성일 : 2021-12-22 13:34:01</div>
-            <div class="commented-2">치킨치킨치킨</div>
-        </div>        
-        <div class="commented">
-            <div class="commented-1">작성자 : <b>Java의 눈물</b> | 작성일 : 2021-12-22 13:34:01</div>
-            <div class="commented-2">치킨치킨치킨</div>
-        </div>
-        <div class="commented">
-            <div class="commented-1">작성자 : <b>Java의 눈물</b> | 작성일 : 2021-12-22 13:34:01</div>
-            <div class="commented-2">치킨치킨치킨</div>
-        </div>        
+        <c:if test="${not empty commentsList}">
+        <c:forEach items="${commentsList}" var="commentsList">
+	        <div class="commented">
+	        	<input type="hidden" value="${board.bdIdx}">
+	            <div class="commented-1">작성자 : <b>${commentsList.userId}</b> | 최초작성일 : ${commentsList.createAt} | 최종수정일 : ${commentsList.modifiedAt} | 댓글번호 : ${commentsList.cmIdx}</div>
+	            <div class="commented-2">
+	            	<div>${commentsList.comments}</div>
+	            	<div><a>수정</a><a>삭제</a></div>
+	            </div>
+	        </div>
+      	</c:forEach>		
+        </c:if>
         
         <!-- 댓글이 없을때 -->
+        <c:if test="${empty commentsList}">
         <div class="notCommented">
             <div class="commented-1">아직 작성된 댓글이 없습니다.</div>
         </div>
+        </c:if>
         
 		<br><br>
         
         <!-- 로그인 상태에서 댓글 쓰기 -->
         <div class="commenting">
             <div class="commenting-1">
-                <div class="userName">Java의 눈물</div>
+                <div class="userName">작성자ID : ${authentication.userId}</div>
                 <div><textarea class="commentArea" name="content" id="ucontent" placeholder="내용" required></textarea></div>
             </div>
             <div class="commenting-2"><input class="commentInput" type="button" value="작성"></div>

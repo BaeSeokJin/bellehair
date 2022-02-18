@@ -17,43 +17,47 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bsj.delight.community.model.dto.Board;
+import com.bsj.delight.community.model.dto.Comments;
 import com.bsj.delight.community.model.service.CommunityService;
 import com.bsj.delight.member.model.dto.Member;
 
 @Controller
 public class CommunityCotroller { 
 
-	private static final Board String = null;
 	private CommunityService communityService;
 	
 	public CommunityCotroller(CommunityService communityService) {
 		super();
 		this.communityService = communityService;
 	}
+	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
+
+	//================================================================
+	// 						게시글 관련 컨트롤러
+	//================================================================
 	
 	// 글목록	
 	@GetMapping("/community/hairForum")
 	public String hairForum(Board board
 							, Model model) {
 		List<Board> list = communityService.getBoardList(board);
-		logger.info("list :" + list);
 		model.addAttribute("list", list);
 		return "community/hairForum";
 	}
 	
-	// 상세보기
+	// 상세보기(디테일)
 	@GetMapping("/community/hairForumDetail")
-	public ModelAndView hairForumDetail(@RequestParam String bdIdx){
+	public ModelAndView hairForumDetail(@RequestParam String bdIdx, Comments comments){
 		
 		ModelAndView mv = new ModelAndView("/community/hairForumDetail");
+		
 		Board board = communityService.hairForumDetail(bdIdx);
-		mv.addObject("board", board);
-		System.out.println("bdIdx값은 잘 받아오니? : " + bdIdx);
-		System.out.println("board값은 잘 받아오니? : " + board);
-		System.out.println("mv의 값은?(syso) : " + mv);
-		logger.info("mv의 값은?(info) : " + mv);
-		System.out.println("=======================절취선=======================");
+		mv.addObject("board", board); 
+		
+		List<Comments> commentsList = communityService.geCommentsList(comments,bdIdx); //댓글
+		mv.addObject("commentsList", commentsList); //댓글
+		
 		return mv;
 	}
 	
@@ -135,5 +139,14 @@ public class CommunityCotroller {
 		return "community/notice";
 	}
 	
+	
+	//================================================================
+	// 						댓글 관련 컨트롤러
+	//================================================================
+	
+	@PostMapping()
+	public String commentsWrite(Member member) {
+		return null;
+	}
 	
 }
