@@ -20,6 +20,8 @@ public interface CommunityService {
 
 	List<Comments> geCommentsList(Comments comments, String bdIdx);
 
+	void commentsWritePost(String contents, String bdIdx, String userId);
+
 
 
 	

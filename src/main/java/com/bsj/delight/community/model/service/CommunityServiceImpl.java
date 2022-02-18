@@ -48,6 +48,12 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityRepository.geCommentsList(comments, bdIdx);
 	}
 
+	@Override
+	public void commentsWritePost(String contents, String bdIdx, String userId) {
+		communityRepository.commentsWritePost(contents, bdIdx, userId);
+		
+	}
+
 
 
 

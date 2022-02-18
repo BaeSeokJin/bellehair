@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -144,9 +145,20 @@ public class CommunityCotroller {
 	// 						댓글 관련 컨트롤러
 	//================================================================
 	
-	@PostMapping()
-	public String commentsWrite(Member member) {
-		return null;
+	
+	@PostMapping("/community/commentsWrite") // 시퀀스 / ㅇㅋ게시글번호 / ㅇㅋ내용 / 현재날짜 / ㅇㅋ작성자아이디
+	public ModelAndView commentsWritePost(String contents, String bdIdx,
+										 HttpSession session) {
+		
+		ModelAndView mv = new ModelAndView("redirect:/community/hairForumDetail?bdIdx="+bdIdx);
+		Member member = (Member) session.getAttribute("authentication");
+		String userId = member.getUserId();
+		System.out.println(contents.getClass().getName());
+		System.out.println(bdIdx.getClass().getName());
+		System.out.println(userId.getClass().getName());
+		communityService.commentsWritePost(contents, bdIdx, userId);
+		
+		return mv;
 	}
 	
 }

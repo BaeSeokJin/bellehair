@@ -47,6 +47,12 @@ public interface CommunityRepository{
 	("select * from comments where bd_idx = #{bdIdx} order by CM_IDX desc")
 	List<Comments> geCommentsList(@Param("comments") Comments comments,@Param("bdIdx") String bdIdx);
 
+	@Insert
+	("INSERT INTO comments "
+			+ "(CM_IDX, BD_IDX, COMMENTS, CREATE_AT, MODIFIED_AT, USER_ID)"
+			+ "values(SC_CM_IDX.NEXTVAL, #{bdIdx}, #{contents}, SYSDATE, SYSDATE, #{userId})")
+	void commentsWritePost(@Param("contents") String contents, @Param("bdIdx") String bdIdx, @Param("userId") String userId);
+
 	
 	
 
