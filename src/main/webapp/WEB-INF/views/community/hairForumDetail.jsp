@@ -289,18 +289,19 @@
         <div class="section04">
             <br>
             <div>
-                <i class="xi-thumbs-up xi-2x xi-fw" style="color: rgb(111, 144, 233);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">${board.good}</span></i>　
+                <!-- 
+				<i class="xi-thumbs-up xi-2x xi-fw" style="color: rgb(111, 144, 233);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">${board.good}</span></i>　
                 <i class="xi-thumbs-down xi-2x xi-fw" style="color: rgb(194, 84, 84);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">${board.good}</span></i>
+            	 -->
+            	<div link="black" vlink="black" alink="navy"></div>
+				<button type="button" onclick="location.href='modifyPosting?bdIdx=${board.bdIdx}'">게시글 수정</button>
+				<button type="button" onclick="location.href='removePosting?bdIdx=${board.bdIdx}'">게시글 삭제</button>
             </div>
         </div>
     </div>
 
-	<a href="/community/removePosting?bdIdx=${board.bdIdx}">게시물 삭제</a>
-	<a href="/community/modifyPosting?bdIdx=${board.bdIdx}">게시물 수정</a>
-
     <br><br><br>
 
-    
     <!-- 코멘트란 -->
     <div class="commentsContainer">
         <div class="comments">Comments</div>

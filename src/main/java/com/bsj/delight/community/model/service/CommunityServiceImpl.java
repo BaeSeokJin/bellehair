@@ -60,6 +60,16 @@ public class CommunityServiceImpl implements CommunityService{
 		
 	}
 
+	@Override
+	public List<Map<String, Object>> getListPagingforSearch(Map<String, Object> criMap) {
+		return communityRepository.getListPagingforSearch(criMap);
+	}
+
+	@Override
+	public int getSearchTotal(Map<String, Object> criMap) {
+		return communityRepository.getSearchTotal(criMap);
+	}
+
 
 
 

@@ -13,9 +13,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bsj.delight.common.paging.Criteria;
+import com.bsj.delight.common.paging.Paging;
 import com.bsj.delight.community.model.dto.Board;
 import com.bsj.delight.community.model.dto.Comments;
 import com.bsj.delight.community.model.dto.Recomments;
@@ -44,6 +47,45 @@ public class CommunityCotroller {
 							, Model model) {
 		List<Board> list = communityService.getBoardList(board);
 		model.addAttribute("list", list);
+		return "community/hairForum";
+	}
+	
+	//글목록 ==> 페이징
+	@RequestMapping("/community/hairForum")
+	public String hairForumBoardList(
+									  Model model
+									, Criteria cri
+									, @RequestParam(defaultValue = "all") String searchOption
+									, @RequestParam(defaultValue = "") String keyword
+									) {
+		
+		//페이지 정보 입력받을 criMap생성
+		Map<String, Object> criMap = new HashMap<String, Object>();
+		// pageNum에 cri.getPgeNum() 입력
+		criMap.put("pageNum", cri.getPageNum());
+		// amount에 cri.getAmount()입력
+		criMap.put("amount", cri.getAmount());
+		//criMap에 keyword 추가
+		criMap.put("keyword", keyword);
+		//criMap에 searchOption 추가
+		criMap.put("searchOption", searchOption);
+		
+		//각 페이지에 들어갈 게시물들 정보 뽑아오기
+		List<Map<String, Object>> list = communityService.getListPagingforSearch(criMap);
+		
+		//맵에 담은 후 모델에 전달
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		//리포트의 게시글 수를 total에 받아옴
+		int getSearchTotal = communityService.getSearchTotal(criMap);
+		
+		//페이징 호출 후 cri값, total값 입력
+		Paging paging = new Paging(cri, getSearchTotal);
+		
+		map.put("list", list);
+		map.put("paging", paging);
+		model.addAllAttributes(map);
+		
 		return "community/hairForum";
 	}
 	
@@ -96,8 +138,7 @@ public class CommunityCotroller {
 		System.out.println(content);
 		System.out.println("=======================글수정(폼등록)=======================");
 		communityService.modifyPostingEnd(board);
-		//communityService.modifyPostingEnd(board);
-		return "redirect:/community/hairForum";
+		return "redirect:/community/hairForumDetail?bdIdx=" + bdIdx;
 	}
 	
 	// 글쓰기(폼이동)

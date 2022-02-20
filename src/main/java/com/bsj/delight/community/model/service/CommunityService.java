@@ -24,6 +24,10 @@ public interface CommunityService {
 
 	void commentsRemove(String cmIdx);
 
+	List<Map<String, Object>> getListPagingforSearch(Map<String, Object> criMap);
+
+	int getSearchTotal(Map<String, Object> criMap);
+
 		
 }
 	

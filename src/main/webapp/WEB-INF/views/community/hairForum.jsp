@@ -19,7 +19,7 @@
 
         .containner{
             width: 1000px;
-            height: 500px;
+            height: 800px;
             margin: 0 auto;
             background-color: #f0e9e9;
             color: #888;
@@ -149,6 +149,66 @@
 	        </div>
         </c:forEach>
     </div>
+
+
+
+
+	<!-- 페이징 시작 -->
+   	<div>
+       	<form method="post" action="/community/hairForum">
+       	<div>	
+       		<select name="searchOption">
+       			<option value="all" <c:out value="${searchMap.searchOption == 'all'?'selected':''}"/> >전체조회</option>
+				<option value="user_id" <c:out value="${searchMap.searchOption == 'user_id'?'selected':'' }"/>>아이디</option>
+				<option value="title" <c:out value="${searchMap.searchOption == 'title'?'selected':'' }"/>>제목</option>
+       		</select>
+       	</div>
+       	<div>
+       		<input style="width: 380px;" name="keyword" value="${searchMap.keyword}">
+       	</div>
+       	<div>
+       		<input type="submit" value="검색">
+       	</div>
+       	</form>
+   	</div>
+	
+    <div class="pagination" style="text-align: center;">
+     	<div class="pageInfo_area">
+			<ul id="pageInfo" class="pageInfo">
+				<!-- 이전페이지 버튼 -->
+ 				<c:if test="${paging.prev}">
+     				<li class="pageInfo_btn previous" href="${paging.startPage-1}">&laquo;</li>
+ 				</c:if>
+				<!-- 각 번호 페이지 버튼  -->
+				<c:forEach var="num" begin="${paging.startPage}" end="${paging.endPage}">
+					<li class="pageInfo_btn ${paging.cri.pageNum == num ? "active":"" }" href="${num}">${num}</li>
+				</c:forEach>
+				<!-- 다음페이지 버튼 -->
+ 				<c:if test="${paging.next}">
+      				<li class="pageInfo_btn next" href="${paging.endPage + 1 }">&raquo;</li>
+ 				</c:if>
+			</ul>
+		</div>
+	</div>
+	
+	<form id="moveForm" method="get">
+		<input type="hidden" name="pageNum" value="${paging.cri.pageNum}">
+		<input type="hidden" name="amount" value="${paging.cri.amount}">
+		<input type="hidden" name="keyword" value="${paging.cri.keyword}">
+	</form>
+	
+	<script type="text/javascript">
+        let moveForm = $("#moveForm");
+        $(".pageInfo li").on("click", function(e){
+       	 e.preventDefault();
+            moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+            moveForm.attr("action", "hairForum");
+            moveForm.submit();
+       });
+    </script>
+	<!-- 페이징 끝 -->
+
+
 
 
     <div class="ending"></div>

@@ -16,6 +16,7 @@
   	
 	<mappers> 
 		<mapper resource="mybatis/mapper/memberMapper.xml"/>
+		<mapper resource="mybatis/mapper/communityMapper.xml"/>
 	</mappers>
 	
 </configuration>

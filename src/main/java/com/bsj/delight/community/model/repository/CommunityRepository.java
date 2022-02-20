@@ -25,8 +25,8 @@ public interface CommunityRepository{
 	void reportInsertPost(Map<String, Object> commandMap);
 
 	// 게시글 목록
-	@Select
-	("select * from board")
+	//@Select
+	//("select * from board order by CREATE_AT desc")
 	List<Board> getBoardList(Board board);
 	
 	// 게시글 상세 페이지
@@ -65,5 +65,10 @@ public interface CommunityRepository{
 	@Delete
 	("delete from comments where CM_IDX = #{cmIdx}")
 	void commentsRemove(String cmIdx);
+
+	
+	List<Map<String, Object>> getListPagingforSearch(Map<String, Object> criMap);
+
+	int getSearchTotal(Map<String, Object> criMap);
 
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 
+원래 이 Mapper는 dao마다 하나씩 있어야 한다
+MemberMapper, OrderMapper, ... 등등
+-->
+
+<!-- 
+mapper 안에 쿼리를 작성하면 된다.
+namespace : 쿼리를 실행하기 위한 프록시 객체가 만들어진다. 그 프록시 개체의 풀네임.
+ -->
+ 
+<mapper namespace="com.bsj.delight.community.model.repository.CommunityRepository">
+
+	<select id="getBoardList" resultType="com.bsj.delight.community.model.dto.Board">
+		<![CDATA[
+			select * from board order by CREATE_AT desc
+		]]>
+	</select>
+
+	<select id="getListPagingforSearch" resultType="com.bsj.delight.community.model.dto.Board">
+		<![CDATA[
+	        select * 
+	        from(select rownum as rb, BD_IDX, USER_CODE, CATEGORY, TITLE, CONTENT, CREATE_AT, MODIFIED_AT, IS_DEL, GOOD, BAD, USER_ID, CNT
+	                from (select * from BOARD order by CREATE_AT desc) BOARD where rownum <= #{pageNum} * #{amount}]]><include refid="search"/><![CDATA[)
+	        where rb > (#{pageNum}-1) * #{amount}
+    	]]>
+	</select>
+
+	<sql id="search">
+		<choose>
+			<when test = "searchOption == 'all'">
+				and 
+					(user_id like '%'||#{keyword}||'%' or TITLE like '%'||#{keyword}||'%')
+					<!-- 유저 아이디 혹은 글 제목 -->
+			</when>			
+			<otherwise>
+				and (${searchOption} like '%'||#{keyword}||'%')
+			</otherwise>
+		</choose>
+	</sql>	
+
+
+  	<select id="getSearchTotal" resultType="int">
+		select count(*)BD_IDX from BOARD
+			<choose>
+				<when test="searchOption == 'all'">
+					where user_id like '%'||#{keyword}||'%' or TITLE like '%'||#{keyword}||'%' 
+				</when>
+				<otherwise>
+					where ${searchOption} like '%'||#{keyword}||'%'
+				</otherwise>
+			</choose>
+	</select>
+
+
+</mapper>
