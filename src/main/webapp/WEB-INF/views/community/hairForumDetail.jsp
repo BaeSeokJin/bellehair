@@ -308,11 +308,21 @@
         <!-- 댓글이 있을때 -->
         <c:if test="${not empty commentsList}">
         <c:forEach items="${commentsList}" var="commentsList">
-	        <div class="commented">
-	        	<input type="hidden" value="${board.bdIdx}">
-	            <div class="commented-1">작성자 : <b>${commentsList.userId}</b> | 최초작성일 : ${commentsList.createAt} | 최종수정일 : ${commentsList.modifiedAt} | 댓글번호 : ${commentsList.cmIdx}</div>
+	        <div class="commented">	<input type="hidden" value="${board.bdIdx}">
+	            <div class="commented-1">
+	            	작성자 : <b>${commentsList.userId}</b> | 
+	            	최초작성일 : ${commentsList.createAt} | 
+	            	최종수정일 : ${commentsList.modifiedAt} | 
+	            	댓글번호 : ${commentsList.cmIdx}
+            	</div>
 	            <div class="commented-2">
-	            	<div>${commentsList.comments}</div>
+	            	<div style="float: left; width: 800px;">${commentsList.comments}</div>
+	            	<!-- 해당 댓글을 삭제 -->
+	            	<form:form action="/community/commentsRemove">
+	            		<input type="hidden" name="bdIdx" value="${board.bdIdx}"> <!-- 해당 게시글 -->
+	            		<input type="hidden" name="cmIdx" value="${commentsList.cmIdx}"> <!-- 해당 댓글 -->
+	            		<input type="submit" value="삭제" style="float: left; margin: 10px;">
+	            	</form:form>
 	            </div>
 	        </div>
       	</c:forEach>		

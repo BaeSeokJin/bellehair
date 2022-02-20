@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -19,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bsj.delight.community.model.dto.Board;
 import com.bsj.delight.community.model.dto.Comments;
+import com.bsj.delight.community.model.dto.Recomments;
 import com.bsj.delight.community.model.service.CommunityService;
 import com.bsj.delight.member.model.dto.Member;
 
@@ -47,18 +47,16 @@ public class CommunityCotroller {
 		return "community/hairForum";
 	}
 	
-	// 상세보기(디테일)
+	// 게시글 상세보기
 	@GetMapping("/community/hairForumDetail")
-	public ModelAndView hairForumDetail(@RequestParam String bdIdx, Comments comments){
-		
+	public ModelAndView hairForumDetail(@RequestParam String bdIdx, Comments comments, Recomments recomments){
 		ModelAndView mv = new ModelAndView("/community/hairForumDetail");
-		
+		//상세글 정보 보여주기
 		Board board = communityService.hairForumDetail(bdIdx);
 		mv.addObject("board", board); 
-		
-		List<Comments> commentsList = communityService.geCommentsList(comments,bdIdx); //댓글
-		mv.addObject("commentsList", commentsList); //댓글
-		
+		//댓글 목록 보여주기
+		List<Comments> commentsList = communityService.geCommentsList(comments,bdIdx); 
+		mv.addObject("commentsList", commentsList);
 		return mv;
 	}
 	
@@ -145,8 +143,8 @@ public class CommunityCotroller {
 	// 						댓글 관련 컨트롤러
 	//================================================================
 	
-	
-	@PostMapping("/community/commentsWrite") // 시퀀스 / ㅇㅋ게시글번호 / ㅇㅋ내용 / 현재날짜 / ㅇㅋ작성자아이디
+	//댓글 등록
+	@PostMapping("/community/commentsWrite") 
 	public ModelAndView commentsWritePost(String contents, String bdIdx,
 										 HttpSession session) {
 		
@@ -160,5 +158,15 @@ public class CommunityCotroller {
 		
 		return mv;
 	}
+	
+	//댓글 삭제
+	@PostMapping("/community/commentsRemove") 
+	public String commentsRemove(String cmIdx, String bdIdx) {
+		System.out.println("게시글 정보 : " + bdIdx);
+		System.out.println("댓글 정보 : " + cmIdx);
+		communityService.commentsRemove(cmIdx);
+		return "redirect:/community/hairForumDetail?bdIdx=" + bdIdx;
+	}
+	
 	
 }

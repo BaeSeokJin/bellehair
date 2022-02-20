@@ -22,13 +22,8 @@ public interface CommunityService {
 
 	void commentsWritePost(String contents, String bdIdx, String userId);
 
+	void commentsRemove(String cmIdx);
 
-
-	
-
-
-
-	
 		
 }
 	

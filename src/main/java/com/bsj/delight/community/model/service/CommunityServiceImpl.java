@@ -54,6 +54,13 @@ public class CommunityServiceImpl implements CommunityService{
 		
 	}
 
+	@Override
+	public void commentsRemove(String cmIdx) {
+		communityRepository.commentsRemove(cmIdx);
+		
+	}
+
+
 
 
 
