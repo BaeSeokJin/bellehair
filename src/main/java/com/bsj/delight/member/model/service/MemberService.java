@@ -35,6 +35,7 @@ public class MemberService {
 
 	// 로그인에 필요한 세션 불러오기
 	public Member authenticateUser(Member member) {
+		System.out.println("authenticateUser입니다");
 		Member storedMember = memberRepository.selectMemberByUserId(member.getUserId());
 		if(passwordEncoder.matches(member.getPassword(), storedMember.getPassword())) {
 			return storedMember;
@@ -60,7 +61,7 @@ public class MemberService {
 				.body(body);
 		
 		String htmlTxt = http.exchange(request, String.class).getBody();
-		mailSender.send(form.getEmail(), "석진 : 회원가입을 축하드립니당!!", htmlTxt);
+		mailSender.send(form.getEmail(), " 회원가입을 축하드립니당!!", htmlTxt);
 		
 	}
 	

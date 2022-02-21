@@ -1,9 +1,12 @@
 package com.bsj.delight.community.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -40,15 +43,7 @@ public class CommunityCotroller {
 	//================================================================
 	// 						게시글 관련 컨트롤러
 	//================================================================
-	
-	// 글목록	
-	@GetMapping("/community/hairForum")
-	public String hairForum(Board board
-							, Model model) {
-		List<Board> list = communityService.getBoardList(board);
-		model.addAttribute("list", list);
-		return "community/hairForum";
-	}
+
 	
 	//글목록 ==> 페이징
 	@RequestMapping("/community/hairForum")
@@ -91,22 +86,29 @@ public class CommunityCotroller {
 	
 	// 게시글 상세보기
 	@GetMapping("/community/hairForumDetail")
-	public ModelAndView hairForumDetail(@RequestParam String bdIdx, Comments comments, Recomments recomments){
+	public ModelAndView hairForumDetail(@RequestParam String bdIdx, Comments comments, Recomments recomments, HttpSession session){
 		ModelAndView mv = new ModelAndView("/community/hairForumDetail");
+		
+		Member member = (Member) session.getAttribute("authentication");
+		mv.addObject("member", member); 
+		
 		//상세글 정보 보여주기
 		Board board = communityService.hairForumDetail(bdIdx);
 		mv.addObject("board", board); 
+		
 		//댓글 목록 보여주기
 		List<Comments> commentsList = communityService.geCommentsList(comments,bdIdx); 
 		mv.addObject("commentsList", commentsList);
+		System.out.println(mv);
 		return mv;
 	}
 	
 	// 글삭제
 	@GetMapping("/community/removePosting")
-	public String removePosting(@RequestParam String bdIdx) {
+	public String removePosting(@RequestParam String bdIdx){
 		System.out.println("삭제 버튼 클릭 완료!! : " + bdIdx);
 		communityService.removePosting(bdIdx);
+		
 		return "redirect:/community/hairForum";
 	}
 	

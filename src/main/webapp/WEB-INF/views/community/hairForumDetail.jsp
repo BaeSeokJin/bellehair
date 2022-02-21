@@ -294,8 +294,10 @@
                 <i class="xi-thumbs-down xi-2x xi-fw" style="color: rgb(194, 84, 84);"><span style="color: rgb(0, 0, 0); font-size: 15px; font-weight: 600;">${board.good}</span></i>
             	 -->
             	<div link="black" vlink="black" alink="navy"></div>
-				<button type="button" onclick="location.href='modifyPosting?bdIdx=${board.bdIdx}'">게시글 수정</button>
-				<button type="button" onclick="location.href='removePosting?bdIdx=${board.bdIdx}'">게시글 삭제</button>
+            	<c:if test="${member.userId == board.userId}">
+					<button type="button" onclick="location.href='modifyPosting?bdIdx=${board.bdIdx}'">게시글 수정</button>
+					<button type="button" onclick="location.href='removePosting?bdIdx=${board.bdIdx}'">게시글 삭제</button>
+				</c:if>
             </div>
         </div>
     </div>
@@ -346,7 +348,7 @@
 	                <div class="userName">작성자ID : ${authentication.userId}</div>
 	                <div><textarea class="commentArea" name="contents" id="ucontent" placeholder="내용" required></textarea></div>
 	            </div>
-	            <div class="commenting-2"><input class="commentInput" type="submit" value="작성"></div>
+	            <div class="commenting-2"><input id="commentInput" class="commentInput" type="submit" value="작성"></div>
 	        </div>
         </form:form>
         
@@ -355,6 +357,8 @@
 
     <div class="ending"></div>
 
+
+</script>
 
 <!-- 컨테이너 끝 -->
 </div>

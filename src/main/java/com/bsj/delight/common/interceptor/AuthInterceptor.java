@@ -31,6 +31,9 @@ public class AuthInterceptor implements HandlerInterceptor{
                case "board":
                   boardAuthorize(httpRequest, httpResponse, uriArr);
                   break;
+               case "community":
+            	  communityAuthorize(httpRequest, httpResponse, uriArr);
+                   break;
                default:
                   break;
             }
@@ -39,6 +42,33 @@ public class AuthInterceptor implements HandlerInterceptor{
       //다음 인터셉터 또는 컨트롤러에게 요청을 전달
       return true;
    }
+   
+   
+	private void communityAuthorize(HttpServletRequest httpRequest, HttpServletResponse httpResponse, String[] uriArr) {
+		HttpSession session = httpRequest.getSession();
+		Member member = (Member) session.getAttribute("authentication");
+		
+		switch (uriArr[2]) {
+		case "hairForum":
+			if(member == null) {
+				throw new HandlableException(ErrorCode.UNAUTHORIZED_PAGE_ERROR);
+			}
+			break;
+		case "removePosting":
+			if(member == null) {
+				throw new HandlableException(ErrorCode.USER_LOGIN_NEEDED.setURL("/member/login"));
+			}
+			break;
+		case "modifyPosting":
+			if(member == null) {
+				throw new HandlableException(ErrorCode.USER_LOGIN_NEEDED.setURL("/member/login"));
+			}
+			break;
+		default:
+	         break;
+		}
+	}
+   
    
    private void boardAuthorize(HttpServletRequest httpRequest, HttpServletResponse httpResponse, String[] uriArr) {
       HttpSession session = httpRequest.getSession();
@@ -93,7 +123,7 @@ public class AuthInterceptor implements HandlerInterceptor{
       }
       
    }
-
+ 
    private void memberAuthorize(HttpServletRequest httpRequest, HttpServletResponse httpResponse, String[] uriArr) {
       HttpSession session = httpRequest.getSession();
       switch (uriArr[2]) {

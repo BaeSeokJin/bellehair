@@ -119,16 +119,18 @@
 		       	<textarea name="content" rows="30" cols="100" placeholder="게시글의 내용을 입력해주세요."></textarea>
 		    </div>
 		    <div class="section03" style="text-align: center;">
-		       	<button type="submit">작성완료</button>
+		       	<button id="hairForumWrites" type="submit">작성완료</button>
 		    </div>    	
 		</form:form>
     </div>
 
 <!-- 컨테이너 끝 -->
 </div>
-    
+  
+      
 <!-- footer -->
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>        
   
+
 </body>
 </html>
