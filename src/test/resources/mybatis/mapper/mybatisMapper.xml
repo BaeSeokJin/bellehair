@@ -22,10 +22,10 @@
   		select * from member where user_id = #{userId}
   	</select>
   
-    <insert id="insertWithDto">
+ <!--    <insert id="insertWithDto">
         insert into member(user_id, password, tell, email)
         values(#{userId},#{password},#{tell},#{email})
-    </insert>
+    </insert> -->
   
   </mapper>
   

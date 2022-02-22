@@ -8,7 +8,7 @@ public enum Config {
 	SMTP_AUTHENTICATION_ID("happyshiptest@gmail.com"),
 	SMTP_AUTHENTICATION_PASSWORD("test11!!"),
 	//UPLOAD_PATH("C:\\CODE\\before\\"),
-	UPLOAD_PATH("C:\\CODE\\");
+	UPLOAD_PATH("/usr/local/toy/upload");
 
 	public final String DESC;
 	
